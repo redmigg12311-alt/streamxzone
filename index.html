@@ -25,10 +25,11 @@
 <meta property="og:site_name" content="StreamZone">
 <meta property="og:title" content="StreamZone — Watch Live Sports Free">
 <meta property="og:description" content="Watch live cricket, football, tennis &amp; more. Direct HD streams, no ads, no redirects. Always up to date.">
-<meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'%3E%3Crect width='1200' height='630' fill='%23050508'/%3E%3Crect width='1200' height='630' fill='url(%23g)'/%3E%3Cdefs%3E%3CradialGradient id='g' cx='20%25' cy='50%25' r='70%25'%3E%3Cstop offset='0' stop-color='%23ff3355' stop-opacity='.18'/%3E%3Cstop offset='1' stop-color='%23050508' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect x='80' y='80' width='56' height='56' rx='14' fill='%23ff3355'/%3E%3Cpolygon points='97,97 136,108 97,119' fill='white'/%3E%3Ctext x='152' y='124' font-family='Arial Black,sans-serif' font-size='48' font-weight='900' fill='white'%3EStream%3C/text%3E%3Ctext x='388' y='124' font-family='Arial Black,sans-serif' font-size='48' font-weight='900' fill='%23ff3355'%3EZone%3C/text%3E%3Ctext x='80' y='260' font-family='Arial,sans-serif' font-size='72' font-weight='900' fill='white'%3EWatch Live Sports%3C/text%3E%3Ctext x='80' y='350' font-family='Arial,sans-serif' font-size='72' font-weight='900' fill='%234d8aff'%3EAnytime. Anywhere.%3C/text%3E%3Ctext x='80' y='440' font-family='Arial,sans-serif' font-size='32' fill='%239090b8'%3ECricket %e2%80%a2 Football %e2%80%a2 Tennis %e2%80%a2 Golf %e2%80%a2 Basketball %e2%80%a2 More%3C/text%3E%3Crect x='80' y='500' width='280' height='60' rx='12' fill='%23ff3355'/%3E%3Ctext x='220' y='537' text-anchor='middle' font-family='Arial,sans-serif' font-size='26' font-weight='700' fill='white'%3E%e2%96%b6 Watch Free Now%3C/text%3E%3Ccircle cx='900' cy='315' r='180' fill='rgba(255,51,85,.06)'/%3E%3Ccircle cx='900' cy='315' r='120' fill='rgba(255,51,85,.06)'/%3E%3Ccircle cx='900' cy='315' r='70' fill='%23ff3355'/%3E%3Cpolygon points='875,285 935,315 875,345' fill='white'/%3E%3C/svg%3E">
+<meta property="og:image" content="https://i.ibb.co/jk1PySFN/Firefly-Gemini-Flash.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:type" content="image/svg+xml">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:alt" content="StreamZone — Watch Live Sports Free">
 <meta property="og:locale" content="en_US">
 
 <!-- ═══ TWITTER CARD ═══ -->
@@ -36,7 +37,7 @@
 <meta name="twitter:site" content="@StreamZone">
 <meta name="twitter:title" content="StreamZone — Watch Live Sports Free">
 <meta name="twitter:description" content="Watch live cricket, football, tennis &amp; more. Direct HD streams, no ads, no redirects.">
-<meta name="twitter:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'%3E%3Crect width='1200' height='630' fill='%23050508'/%3E%3Crect x='80' y='80' width='56' height='56' rx='14' fill='%23ff3355'/%3E%3Cpolygon points='97,97 136,108 97,119' fill='white'/%3E%3Ctext x='152' y='124' font-family='Arial Black' font-size='48' font-weight='900' fill='white'%3EStreamZone%3C/text%3E%3Ctext x='80' y='260' font-family='Arial' font-size='72' font-weight='900' fill='white'%3EWatch Live Sports%3C/text%3E%3Ctext x='80' y='350' font-family='Arial' font-size='72' font-weight='900' fill='%234d8aff'%3EAnytime. Anywhere.%3C/text%3E%3C/svg%3E">
+<meta name="twitter:image" content="https://i.ibb.co/jk1PySFN/Firefly-Gemini-Flash.png">
 
 <!-- ═══ FAVICON (Multi-size) ═══ -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23ff3355'/%3E%3Cpolygon points='11,8 25,16 11,24' fill='white'/%3E%3C/svg%3E">
@@ -503,6 +504,67 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
 
 <div id="toast"></div>
 
+<!-- Stream Modal -->
+<div id="stream-modal" style="display:none;position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.92);backdrop-filter:blur(16px);align-items:center;justify-content:center;padding:16px">
+  <div style="width:100%;max-width:480px;background:#0f0f1c;border:1px solid rgba(255,255,255,.12);border-radius:18px;overflow:hidden;animation:popIn .2s ease">
+    <!-- Head -->
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 18px;background:#16162a;border-bottom:1px solid rgba(255,255,255,.07)">
+      <div style="min-width:0;flex:1;margin-right:12px">
+        <div id="sm-live" style="display:none;align-items:center;gap:5px;background:rgba(255,51,85,.1);border:1px solid rgba(255,51,85,.2);color:#ff3355;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-bottom:6px;width:fit-content">
+          <span style="width:5px;height:5px;border-radius:50%;background:#ff3355;animation:pulse 1.4s ease infinite;display:inline-block"></span>Live
+        </div>
+        <div id="sm-title" style="font-size:15px;font-weight:700;color:#f0f0fa;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Match</div>
+        <div id="sm-sub" style="font-size:11px;color:#505075;margin-top:2px"></div>
+      </div>
+      <button onclick="closeStreamModal()" style="width:30px;height:30px;border-radius:8px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#9090b8;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;flex-shrink:0">×</button>
+    </div>
+    <!-- Options -->
+    <div style="padding:18px;display:flex;flex-direction:column;gap:9px">
+
+      <!-- Option 1: VLC (deep link — auto opens VLC app) -->
+      <div onclick="launchVLC()" style="display:flex;align-items:center;gap:14px;padding:14px 16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,170,34,.15);border-radius:12px;cursor:pointer;user-select:none" onmouseover="this.style.background='rgba(255,170,34,.06)'" onmouseout="this.style.background='rgba(255,255,255,.04)'">
+        <span style="font-size:26px;flex-shrink:0">🎬</span>
+        <div style="min-width:0">
+          <div style="font-size:14px;font-weight:700;color:#f0f0fa">Open in VLC</div>
+          <div style="font-size:11px;color:#505075;margin-top:2px">Launches VLC app directly — Android &amp; iOS</div>
+        </div>
+        <span style="margin-left:auto;color:#ffaa22;font-size:18px;flex-shrink:0">›</span>
+      </div>
+
+      <!-- Option 2: Network Stream App (Android intent) -->
+      <div onclick="launchNetworkStream()" style="display:flex;align-items:center;gap:14px;padding:14px 16px;background:rgba(255,255,255,.04);border:1px solid rgba(77,138,255,.15);border-radius:12px;cursor:pointer;user-select:none" onmouseover="this.style.background='rgba(77,138,255,.06)'" onmouseout="this.style.background='rgba(255,255,255,.04)'">
+        <span style="font-size:26px;flex-shrink:0">📡</span>
+        <div style="min-width:0">
+          <div style="font-size:14px;font-weight:700;color:#f0f0fa">Network Stream Player</div>
+          <div style="font-size:11px;color:#505075;margin-top:2px">Opens "choose app" — pick VLC, Kodi, MPV etc.</div>
+        </div>
+        <span style="margin-left:auto;color:#4d8aff;font-size:18px;flex-shrink:0">›</span>
+      </div>
+
+      <!-- Option 3: Copy URL -->
+      <button onclick="copyStreamUrl()" style="display:flex;align-items:center;gap:14px;padding:14px 16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;cursor:pointer;width:100%;text-align:left;font-family:sans-serif" onmouseover="this.style.background='rgba(255,255,255,.07)'" onmouseout="this.style.background='rgba(255,255,255,.04)'">
+        <span style="font-size:26px;flex-shrink:0">📋</span>
+        <div style="min-width:0">
+          <div style="font-size:14px;font-weight:700;color:#f0f0fa">Copy Stream URL</div>
+          <div style="font-size:11px;color:#505075;margin-top:2px">Paste into VLC, Kodi, or any player manually</div>
+        </div>
+        <span style="margin-left:auto;color:#9090b8;font-size:18px;flex-shrink:0">›</span>
+      </button>
+
+      <!-- URL bar -->
+      <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:9px 12px;display:flex;align-items:center;gap:8px;margin-top:2px">
+        <span style="font-size:10px;color:#404060;font-family:monospace;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" id="sm-url">—</span>
+        <button onclick="copyStreamUrl()" style="flex-shrink:0;background:rgba(77,138,255,.15);border:1px solid rgba(77,138,255,.25);color:#4d8aff;font-size:11px;font-weight:600;padding:4px 10px;border-radius:6px;cursor:pointer;font-family:sans-serif;white-space:nowrap">Copy</button>
+      </div>
+
+      <!-- Hint -->
+      <div style="font-size:11px;color:#30304a;text-align:center;line-height:1.6">
+        💡 VLC: <b style="color:#404060">Media → Open Network Stream</b> → paste URL
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
 // ════════════════════════════════
 // CONFIG
@@ -513,66 +575,11 @@ const PROXIES = [
   u => `https://corsproxy.io/?${encodeURIComponent(u)}`,
   u => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(u)}`
 ];
-const WORKER = 'https://fancode-stream.ultrawebs-2024.workers.dev/?id=';
-const W_SUFFIX = '&lang=english';
 
 function patchUrl(url) {
   return url ? url.replace(/bd-mc-flive\.fancode\.com/g, 'in-mc-flive.fancode.com') : url;
 }
 
-// Build a self-contained player HTML page and open it in a new tab
-// This sets the correct Referer/Origin so FanCode CDN doesn't block it
-function buildPlayerPage(m, streamUrl) {
-  const title = esc(m.title || 'StreamZone Player');
-  const html = `<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>${title} — StreamZone</title>
-<meta name="referrer" content="no-referrer">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-html,body{width:100%;height:100%;background:#000;overflow:hidden}
-video{width:100%;height:100%;display:block}
-#info{position:fixed;top:0;left:0;right:0;padding:10px 16px;background:linear-gradient(rgba(0,0,0,.8),transparent);color:#fff;font-family:system-ui;font-size:14px;font-weight:600;pointer-events:none;z-index:10}
-#err{display:none;position:fixed;inset:0;background:#000;color:#fff;font-family:system-ui;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:24px}
-#err.show{display:flex}
-#err h2{font-size:20px}#err p{font-size:14px;opacity:.6;max-width:300px;line-height:1.6}
-#err a{color:#4d8aff;font-size:13px}
-</style>
-</head>
-<body>
-<div id="info">▶ ${title}</div>
-<video id="v" controls autoplay playsinline></video>
-<div id="err">
-  <div style="font-size:48px">📡</div>
-  <h2>Stream Unavailable</h2>
-  <p>Could not load this stream. The link may have expired.</p>
-  <a href="${streamUrl}" target="_blank">Try direct URL</a>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/hls.js/1.4.12/hls.min.js"><\/script>
-<script>
-const url = ${JSON.stringify(streamUrl)};
-const v = document.getElementById('v');
-if (Hls.isSupported()) {
-  const hls = new Hls({enableWorker:true,lowLatencyMode:true});
-  hls.loadSource(url);
-  hls.attachMedia(v);
-  hls.on(Hls.Events.MANIFEST_PARSED, () => v.play().catch(()=>{}));
-  hls.on(Hls.Events.ERROR, (e,d) => { if(d.fatal) document.getElementById('err').classList.add('show'); });
-} else if (v.canPlayType('application/vnd.apple.mpegurl')) {
-  v.src = url;
-  v.addEventListener('loadedmetadata', () => v.play().catch(()=>{}));
-  v.addEventListener('error', () => document.getElementById('err').classList.add('show'));
-} else {
-  document.getElementById('err').classList.add('show');
-}
-<\/script>
-</body>
-</html>`;
-  return html;
-}
 
 // ════════════════════════════════
 // STATE
@@ -798,31 +805,95 @@ function playStream(encoded, e) {
     return;
   }
 
-  // Use worker URL (handles Referer/Origin headers) if match_id available
-  // Otherwise fall back to patched adfree_url
-  let streamUrl;
-  if (m.match_id) {
-    const patched = patchUrl(m.adfree_url || '');
-    streamUrl = WORKER + m.match_id + W_SUFFIX + (patched ? '&stream=' + encodeURIComponent(patched) : '');
-  } else {
-    streamUrl = patchUrl(m.adfree_url || '');
-  }
+  const url = patchUrl(m.adfree_url || '');
+  if (!url) { toast('❌ No stream URL available'); return; }
 
-  if (!streamUrl) { toast('❌ No stream URL available'); return; }
+  // Show stream options modal
+  openStreamModal(m, url);
+}
 
-  // Open embedded player page in new tab — sets correct headers via hls.js
-  const playerHtml = buildPlayerPage(m, streamUrl);
-  const blob = new Blob([playerHtml], { type: 'text/html' });
-  const blobUrl = URL.createObjectURL(blob);
-  const win = window.open(blobUrl, '_blank', 'noopener');
-  // Revoke blob URL after tab opens
-  setTimeout(() => URL.revokeObjectURL(blobUrl), 5000);
-  if (!win) {
-    // Popup blocked — fallback to direct URL
-    window.open(streamUrl, '_blank', 'noopener');
-    toast('💡 If stream fails, try allowing popups');
+function openStreamModal(m, url) {
+  document.getElementById('sm-title').textContent = m.title || 'Match';
+  document.getElementById('sm-sub').textContent = [m.league, m.cat].filter(Boolean).join(' · ');
+  document.getElementById('sm-url').textContent = url;
+  document.getElementById('sm-live').style.display = m.live ? 'flex' : 'none';
+  document.getElementById('stream-modal').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  currentStreamUrl = url;
+  currentMatchTitle = m.title || 'Stream';
+}
+
+// Launch VLC — tries vlc:// deep link, fallback shows copy tip
+function launchVLC() {
+  if (!currentStreamUrl) return;
+  // VLC on iOS uses vlc:// , on Android uses vlc://
+  const vlcUrl = 'vlc://' + currentStreamUrl.replace(/^https?:\/\//, '');
+  
+  // Try to open via hidden iframe trick (works better than window.location on mobile)
+  const iframe = document.createElement('iframe');
+  iframe.style.display = 'none';
+  document.body.appendChild(iframe);
+  
+  // Also set window.location as backup
+  const start = Date.now();
+  iframe.src = vlcUrl;
+  
+  // Detect if app opened — if page is still focused after 1.5s, app likely not installed
+  setTimeout(() => {
+    document.body.removeChild(iframe);
+    if (Date.now() - start < 2000) {
+      // App may not have opened — show fallback
+      if (!document.hidden) {
+        toast('📱 VLC not opening? Copy URL and use Media → Open Network Stream in VLC');
+      }
+    }
+  }, 1500);
+  
+  // Also try window.location for Android
+  try { window.location.href = vlcUrl; } catch(e) {}
+  toast('🎬 Opening VLC…');
+}
+
+// Launch via Android intent — shows app chooser
+function launchNetworkStream() {
+  if (!currentStreamUrl) return;
+  const url = currentStreamUrl;
+  const title = encodeURIComponent(currentMatchTitle);
+  
+  // Android intent URL — pops "Open with" dialog for all video apps
+  const intentUrl = 'intent:' + url +
+    '#Intent;action=android.intent.action.VIEW;' +
+    'type=video/mp2ts;' +
+    'S.title=' + title + ';' +
+    'package=org.videolan.vlc;' +  // prefer VLC, fallback to chooser
+    'end';
+  
+  const start = Date.now();
+  window.location.href = intentUrl;
+  
+  setTimeout(() => {
+    if (!document.hidden && Date.now() - start < 2000) {
+      // Android intent failed (probably iOS/desktop) — try vlc:// instead
+      launchVLC();
+    }
+  }, 1200);
+  toast('📡 Opening stream player…');
+}
+
+function closeStreamModal() {
+  document.getElementById('stream-modal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+function copyStreamUrl() {
+  const url = currentStreamUrl || document.getElementById('sm-url').textContent;
+  if (url && url !== '—') {
+    navigator.clipboard.writeText(url).then(() => toast('✓ Stream URL copied!'));
   }
 }
+
+let currentStreamUrl = '';
+let currentMatchTitle = '';
 
 
 
