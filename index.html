@@ -45,6 +45,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%23ff3355'/%3E%3Cpolygon points='5,4 13,8 5,12' fill='white'/%3E%3C/svg%3E">
 <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%23ff3355'/%3E%3Cpolygon points='55,45 140,90 55,135' fill='white'/%3E%3C/svg%3E">
 <link rel="mask-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpolygon points='11,8 25,16 11,24' fill='black'/%3E%3C/svg%3E" color="#ff3355">
+<script src="https://cdn.jsdelivr.net/npm/hls.js@1.4.12/dist/hls.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -505,63 +506,47 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
 <div id="toast"></div>
 
 <!-- Stream Modal -->
-<div id="stream-modal" style="display:none;position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.92);backdrop-filter:blur(16px);align-items:center;justify-content:center;padding:16px">
-  <div style="width:100%;max-width:480px;background:#0f0f1c;border:1px solid rgba(255,255,255,.12);border-radius:18px;overflow:hidden;animation:popIn .2s ease">
-    <!-- Head -->
-    <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 18px;background:#16162a;border-bottom:1px solid rgba(255,255,255,.07)">
-      <div style="min-width:0;flex:1;margin-right:12px">
-        <div id="sm-live" style="display:none;align-items:center;gap:5px;background:rgba(255,51,85,.1);border:1px solid rgba(255,51,85,.2);color:#ff3355;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-bottom:6px;width:fit-content">
-          <span style="width:5px;height:5px;border-radius:50%;background:#ff3355;animation:pulse 1.4s ease infinite;display:inline-block"></span>Live
-        </div>
-        <div id="sm-title" style="font-size:15px;font-weight:700;color:#f0f0fa;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Match</div>
-        <div id="sm-sub" style="font-size:11px;color:#505075;margin-top:2px"></div>
+<!-- Stream Player Modal -->
+<div id="stream-modal" style="display:none;position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.95);backdrop-filter:blur(20px);flex-direction:column;">
+
+  <!-- Top bar -->
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 18px;background:rgba(22,22,42,.98);border-bottom:1px solid rgba(255,255,255,.08);flex-shrink:0">
+    <div style="display:flex;align-items:center;gap:10px;min-width:0;flex:1">
+      <div id="sm-live" style="display:none;align-items:center;gap:4px;background:#ff3355;color:#fff;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 9px;border-radius:4px;flex-shrink:0">
+        <span style="width:5px;height:5px;border-radius:50%;background:#fff;animation:pulse 1.4s ease infinite;display:inline-block"></span>LIVE
       </div>
-      <button onclick="closeStreamModal()" style="width:30px;height:30px;border-radius:8px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#9090b8;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;flex-shrink:0">×</button>
-    </div>
-    <!-- Options -->
-    <div style="padding:18px;display:flex;flex-direction:column;gap:9px">
-
-      <!-- Option 1: VLC (deep link — auto opens VLC app) -->
-      <div onclick="launchVLC()" style="display:flex;align-items:center;gap:14px;padding:14px 16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,170,34,.15);border-radius:12px;cursor:pointer;user-select:none" onmouseover="this.style.background='rgba(255,170,34,.06)'" onmouseout="this.style.background='rgba(255,255,255,.04)'">
-        <span style="font-size:26px;flex-shrink:0">🎬</span>
-        <div style="min-width:0">
-          <div style="font-size:14px;font-weight:700;color:#f0f0fa">Open in VLC</div>
-          <div style="font-size:11px;color:#505075;margin-top:2px">Launches VLC app directly — Android &amp; iOS</div>
-        </div>
-        <span style="margin-left:auto;color:#ffaa22;font-size:18px;flex-shrink:0">›</span>
-      </div>
-
-      <!-- Option 2: Network Stream App (Android intent) -->
-      <div onclick="launchNetworkStream()" style="display:flex;align-items:center;gap:14px;padding:14px 16px;background:rgba(255,255,255,.04);border:1px solid rgba(77,138,255,.15);border-radius:12px;cursor:pointer;user-select:none" onmouseover="this.style.background='rgba(77,138,255,.06)'" onmouseout="this.style.background='rgba(255,255,255,.04)'">
-        <span style="font-size:26px;flex-shrink:0">🌐</span>
-        <div style="min-width:0">
-          <div style="font-size:14px;font-weight:700;color:#f0f0fa">Open in Web Player</div>
-          <div style="font-size:11px;color:#505075;margin-top:2px">Opens hls-js web player in browser — works everywhere</div>
-        </div>
-        <span style="margin-left:auto;color:#4d8aff;font-size:18px;flex-shrink:0">›</span>
-      </div>
-
-      <!-- Option 3: Copy URL -->
-      <button onclick="copyStreamUrl()" style="display:flex;align-items:center;gap:14px;padding:14px 16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;cursor:pointer;width:100%;text-align:left;font-family:sans-serif" onmouseover="this.style.background='rgba(255,255,255,.07)'" onmouseout="this.style.background='rgba(255,255,255,.04)'">
-        <span style="font-size:26px;flex-shrink:0">📋</span>
-        <div style="min-width:0">
-          <div style="font-size:14px;font-weight:700;color:#f0f0fa">Copy Stream URL</div>
-          <div style="font-size:11px;color:#505075;margin-top:2px">Paste into VLC, Kodi, or any player manually</div>
-        </div>
-        <span style="margin-left:auto;color:#9090b8;font-size:18px;flex-shrink:0">›</span>
-      </button>
-
-      <!-- URL bar -->
-      <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:9px 12px;display:flex;align-items:center;gap:8px;margin-top:2px">
-        <span style="font-size:10px;color:#404060;font-family:monospace;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" id="sm-url">—</span>
-        <button onclick="copyStreamUrl()" style="flex-shrink:0;background:rgba(77,138,255,.15);border:1px solid rgba(77,138,255,.25);color:#4d8aff;font-size:11px;font-weight:600;padding:4px 10px;border-radius:6px;cursor:pointer;font-family:sans-serif;white-space:nowrap">Copy</button>
-      </div>
-
-      <!-- Hint -->
-      <div style="font-size:11px;color:#30304a;text-align:center;line-height:1.6">
-        💡 VLC: <b style="color:#404060">Media → Open Network Stream</b> → paste URL
+      <div style="min-width:0">
+        <div id="sm-title" style="font-size:14px;font-weight:700;color:#f0f0fa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:-.02em">Match</div>
+        <div id="sm-sub" style="font-size:11px;color:#505075;margin-top:1px"></div>
       </div>
     </div>
+    <button onclick="closeStreamModal()" style="width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#9090b8;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-left:12px;font-family:sans-serif;transition:all .15s" onmouseover="this.style.background='rgba(255,51,85,.15)';this.style.color='#ff3355'" onmouseout="this.style.background='rgba(255,255,255,.06)';this.style.color='#9090b8'">×</button>
+  </div>
+
+  <!-- Player area -->
+  <div style="flex:1;display:flex;align-items:center;justify-content:center;position:relative;background:#000;min-height:0">
+    <video id="sm-video" controls autoplay playsinline style="width:100%;height:100%;max-height:calc(100vh - 130px);object-fit:contain;display:block"></video>
+
+    <!-- Loading -->
+    <div id="sm-loader" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:#000;z-index:5">
+      <div style="width:50px;height:50px;border:3px solid rgba(255,255,255,.08);border-top-color:#ff3355;border-radius:50%;animation:spin .8s linear infinite"></div>
+      <div style="color:rgba(255,255,255,.35);font-family:sans-serif;font-size:13px">Connecting to stream…</div>
+    </div>
+
+    <!-- Error -->
+    <div id="sm-err" style="position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:#000;z-index:6;text-align:center;padding:24px;font-family:sans-serif">
+      <div style="font-size:48px">📡</div>
+      <div style="font-size:18px;font-weight:700;color:#fff">Stream Unavailable</div>
+      <div style="font-size:13px;color:rgba(255,255,255,.4);line-height:1.7;max-width:280px">The stream could not load. It may require special access.</div>
+      <button onclick="copyStreamUrl()" style="margin-top:4px;background:rgba(77,138,255,.15);border:1px solid rgba(77,138,255,.3);color:#4d8aff;font-size:13px;font-weight:600;padding:10px 20px;border-radius:10px;cursor:pointer;font-family:sans-serif">Copy URL to play in VLC</button>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div style="display:flex;align-items:center;gap:10px;padding:10px 16px;background:rgba(22,22,42,.98);border-top:1px solid rgba(255,255,255,.07);flex-shrink:0">
+    <div style="font-size:10px;color:#30304a;font-family:monospace;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" id="sm-url">—</div>
+    <button onclick="copyStreamUrl()" style="flex-shrink:0;background:rgba(77,138,255,.12);border:1px solid rgba(77,138,255,.2);color:#4d8aff;font-size:11px;font-weight:600;padding:6px 12px;border-radius:7px;cursor:pointer;font-family:sans-serif;white-space:nowrap;transition:all .15s" onmouseover="this.style.background='rgba(77,138,255,.22)'" onmouseout="this.style.background='rgba(77,138,255,.12)'">⎘ Copy URL</button>
+    <button onclick="reloadStreamModal()" style="flex-shrink:0;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#9090b8;font-size:11px;font-weight:600;padding:6px 12px;border-radius:7px;cursor:pointer;font-family:sans-serif;white-space:nowrap;transition:all .15s" onmouseover="this.style.color='#f0f0fa'" onmouseout="this.style.color='#9090b8'">↻ Reload</button>
   </div>
 </div>
 
@@ -808,142 +793,93 @@ function playStream(encoded, e) {
   const url = patchUrl(m.adfree_url || '');
   if (!url) { toast('❌ No stream URL available'); return; }
 
-  // Show stream options modal
   openStreamModal(m, url);
 }
 
 function openStreamModal(m, url) {
+  currentStreamUrl = url;
+  currentMatchTitle = m.title || 'Stream';
+
+  // Set header info
   document.getElementById('sm-title').textContent = m.title || 'Match';
   document.getElementById('sm-sub').textContent = [m.league, m.cat].filter(Boolean).join(' · ');
   document.getElementById('sm-url').textContent = url;
   document.getElementById('sm-live').style.display = m.live ? 'flex' : 'none';
-  document.getElementById('stream-modal').style.display = 'flex';
+
+  // Show modal fullscreen
+  const modal = document.getElementById('stream-modal');
+  modal.style.display = 'flex';
   document.body.style.overflow = 'hidden';
-  currentStreamUrl = url;
-  currentMatchTitle = m.title || 'Stream';
+
+  // Reset states
+  document.getElementById('sm-loader').style.display = 'flex';
+  document.getElementById('sm-err').style.display = 'none';
+  const video = document.getElementById('sm-video');
+  video.style.display = 'block';
+
+  // Load stream with hls.js
+  loadHLSStream(video, url);
 }
 
-// Launch VLC — tries vlc:// deep link, fallback shows copy tip
-function launchVLC() {
-  if (!currentStreamUrl) return;
-  // VLC on iOS uses vlc:// , on Android uses vlc://
-  const vlcUrl = 'vlc://' + currentStreamUrl.replace(/^https?:\/\//, '');
-  
-  // Try to open via hidden iframe trick (works better than window.location on mobile)
-  const iframe = document.createElement('iframe');
-  iframe.style.display = 'none';
-  document.body.appendChild(iframe);
-  
-  // Also set window.location as backup
-  const start = Date.now();
-  iframe.src = vlcUrl;
-  
-  // Detect if app opened — if page is still focused after 1.5s, app likely not installed
-  setTimeout(() => {
-    document.body.removeChild(iframe);
-    if (Date.now() - start < 2000) {
-      // App may not have opened — show fallback
-      if (!document.hidden) {
-        toast('📱 VLC not opening? Copy URL and use Media → Open Network Stream in VLC');
+function loadHLSStream(video, url) {
+  // Destroy old instance if any
+  if (window._hlsInst) { window._hlsInst.destroy(); window._hlsInst = null; }
+  video.src = '';
+
+  const onReady = () => {
+    document.getElementById('sm-loader').style.display = 'none';
+    video.play().catch(() => {});
+  };
+  const onErr = () => {
+    document.getElementById('sm-loader').style.display = 'none';
+    document.getElementById('sm-err').style.display = 'flex';
+  };
+
+  if (typeof Hls !== 'undefined' && Hls.isSupported()) {
+    const hls = new Hls({
+      enableWorker: false,
+      lowLatencyMode: true,
+      xhrSetup: function(xhr, u) {
+        xhr.setRequestHeader('Origin', 'https://fancode.com');
       }
-    }
-  }, 1500);
-  
-  // Also try window.location for Android
-  try { window.location.href = vlcUrl; } catch(e) {}
-  toast('🎬 Opening VLC…');
-}
-
-// Launch via Android intent — shows app chooser
-function launchNetworkStream() {
-  if (!currentStreamUrl) return;
-  const url = currentStreamUrl;
-  const title = currentMatchTitle || 'StreamZone';
-
-  // Build a self-contained HLS web player page
-  const playerPage = `<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>${title.replace(/`/g,"'")} — StreamZone</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-html,body{background:#000;width:100%;height:100%;overflow:hidden;font-family:sans-serif}
-#wrap{position:relative;width:100%;height:100vh;display:flex;align-items:center;justify-content:center;background:#000}
-video{width:100%;height:100%;object-fit:contain;display:block}
-#hdr{position:fixed;top:0;left:0;right:0;padding:12px 16px;background:linear-gradient(rgba(0,0,0,.85),transparent);color:#fff;font-size:13px;font-weight:600;z-index:10;pointer-events:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-#hdr span{color:#ff3355;margin-right:8px}
-#loader{position:fixed;inset:0;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;z-index:20}
-#ring{width:44px;height:44px;border:3px solid rgba(255,255,255,.1);border-top-color:#ff3355;border-radius:50%;animation:spin .8s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-#loader p{color:rgba(255,255,255,.4);font-size:13px}
-#err{position:fixed;inset:0;background:#000;display:none;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:24px;z-index:20}
-#err h2{color:#fff;font-size:18px}#err p{color:rgba(255,255,255,.5);font-size:13px;line-height:1.6;max-width:280px}
-#err a{color:#4d8aff;font-size:12px;margin-top:4px;display:block}
-</style>
-</head>
-<body>
-<div id="hdr"><span>▶</span>${title.replace(/`/g,"'")}</div>
-<div id="wrap"><video id="v" controls autoplay playsinline></video></div>
-<div id="loader"><div id="ring"></div><p>Connecting to stream…</p></div>
-<div id="err">
-  <div style="font-size:44px">📡</div>
-  <h2>Stream Unavailable</h2>
-  <p>The stream could not be loaded. It may have expired or requires a different player.</p>
-  <a href="${url}" target="_blank">Try direct URL ↗</a>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/hls.js@1.4.12/dist/hls.min.js"><\/script>
-<script>
-(function(){
-  var src = ${JSON.stringify(url)};
-  var v = document.getElementById('v');
-  var loader = document.getElementById('loader');
-  var err = document.getElementById('err');
-
-  function onReady(){ loader.style.display='none'; v.play().catch(function(){}); }
-  function onErr(){ loader.style.display='none'; err.style.display='flex'; }
-
-  if(typeof Hls !== 'undefined' && Hls.isSupported()){
-    var hls = new Hls({ enableWorker: false, lowLatencyMode: true });
-    hls.loadSource(src);
-    hls.attachMedia(v);
+    });
+    window._hlsInst = hls;
+    hls.loadSource(url);
+    hls.attachMedia(video);
     hls.on(Hls.Events.MANIFEST_PARSED, onReady);
-    hls.on(Hls.Events.ERROR, function(e, d){ if(d.fatal) onErr(); });
-  } else if(v.canPlayType('application/vnd.apple.mpegurl')){
-    v.src = src;
-    v.addEventListener('loadedmetadata', onReady);
-    v.addEventListener('error', onErr);
+    hls.on(Hls.Events.ERROR, function(e, d) { if (d.fatal) onErr(); });
+  } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    // Safari / iOS native HLS
+    video.src = url;
+    video.addEventListener('loadedmetadata', onReady, { once: true });
+    video.addEventListener('error', onErr, { once: true });
   } else {
     onErr();
   }
-})();
-<\/script>
-</body>
-</html>`;
+}
 
-  const blob = new Blob([playerPage], { type: 'text/html' });
-  const blobUrl = URL.createObjectURL(blob);
-  const win = window.open(blobUrl, '_blank');
-  setTimeout(() => URL.revokeObjectURL(blobUrl), 15000);
-  if (!win) {
-    // Popup blocked — copy url and tell user
-    navigator.clipboard?.writeText(url);
-    toast('⚠️ Popup blocked! Allow popups and try again.');
-  } else {
-    toast('🌐 Opening web player…');
-  }
+function reloadStreamModal() {
+  if (!currentStreamUrl) return;
+  document.getElementById('sm-loader').style.display = 'flex';
+  document.getElementById('sm-err').style.display = 'none';
+  const video = document.getElementById('sm-video');
+  loadHLSStream(video, currentStreamUrl);
+  toast('↻ Reloading stream…');
 }
 
 function closeStreamModal() {
   document.getElementById('stream-modal').style.display = 'none';
   document.body.style.overflow = '';
+  const video = document.getElementById('sm-video');
+  video.pause();
+  video.src = '';
+  if (window._hlsInst) { window._hlsInst.destroy(); window._hlsInst = null; }
 }
 
 function copyStreamUrl() {
   const url = currentStreamUrl || document.getElementById('sm-url').textContent;
   if (url && url !== '—') {
-    navigator.clipboard.writeText(url).then(() => toast('✓ Stream URL copied!'));
+    navigator.clipboard?.writeText(url).then(() => toast('✓ Stream URL copied!'));
   }
 }
 
