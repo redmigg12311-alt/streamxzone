@@ -316,8 +316,99 @@ function reloadPlayer() { startStream(streamUrl); }
 /* ── DIRECT PLAY ── */
 function directPlay() {
   if (!streamUrl) return;
-  // Open the raw m3u8 URL directly — browser handles it natively
-  window.open(streamUrl, '_blank', 'noopener');
+  openBlobPlayer(streamUrl, title, isLive);
+}
+
+function openBlobPlayer(url, matchTitle, live) {
+  const page = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>${matchTitle} — StreamZone</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;background:#000;overflow:hidden;font-family:system-ui,sans-serif}
+#topbar{position:fixed;top:0;left:0;right:0;z-index:10;padding:10px 14px;background:linear-gradient(rgba(0,0,0,.85),transparent);display:flex;align-items:center;gap:10px;transition:opacity .3s}
+#topbar.hide{opacity:0;pointer-events:none}
+.t-logo{display:flex;align-items:center;gap:6px;text-decoration:none}
+.t-mark{width:26px;height:26px;border-radius:6px;background:#ff3355;display:flex;align-items:center;justify-content:center}
+.t-mark svg{width:10px;height:10px;fill:#fff}
+.t-name{font-size:14px;font-weight:800;color:#fff;letter-spacing:-.04em}
+.t-name b{color:#ff3355}
+#t-title{flex:1;font-size:12px;font-weight:600;color:rgba(255,255,255,.65);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.t-live{display:${live?'flex':'none'};align-items:center;gap:4px;background:#ff3355;color:#fff;font-size:9px;font-weight:800;letter-spacing:.1em;padding:3px 8px;border-radius:4px;flex-shrink:0}
+.t-dot{width:5px;height:5px;border-radius:50%;background:#fff;animation:p 1.4s ease infinite}
+@keyframes p{0%,100%{opacity:1}50%{opacity:.3}}
+video{width:100%;height:100vh;display:block;object-fit:contain;transition:opacity .3s}
+video.h{opacity:0}
+#load{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:#000;z-index:5}
+#ring{width:50px;height:50px;border:3px solid rgba(255,255,255,.07);border-top-color:#ff3355;border-radius:50%;animation:s .85s linear infinite}
+@keyframes s{to{transform:rotate(360deg)}}
+#lt{color:rgba(255,255,255,.5);font-size:14px;font-weight:600;text-align:center;max-width:280px;line-height:1.4;padding:0 20px}
+#ls{color:rgba(255,255,255,.25);font-size:12px}
+#err{position:fixed;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:#000;text-align:center;padding:24px;z-index:6}
+#err h2{font-size:20px;font-weight:700;color:#fff}
+#err p{font-size:13px;color:rgba(255,255,255,.4);line-height:1.7;max-width:280px}
+#err a{color:#4d8aff;font-size:12px}
+.eb{margin-top:4px;border:none;cursor:pointer;font-family:inherit;font-size:13px;font-weight:600;padding:11px 22px;border-radius:10px;display:inline-flex;align-items:center;gap:6px}
+.ep{background:#ff3355;color:#fff}
+.eg{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.6)}
+</style>
+</head>
+<body>
+<div id="topbar">
+  <a class="t-logo" href="javascript:window.close()">
+    <div class="t-mark"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+    <span class="t-name">Stream<b>Zone</b></span>
+  </a>
+  <div id="t-title">${matchTitle}</div>
+  <div class="t-live"><span class="t-dot"></span>LIVE</div>
+</div>
+<video id="v" controls autoplay playsinline class="h"></video>
+<div id="load"><div id="ring"></div><div id="lt">${matchTitle}</div><div id="ls">Connecting to stream…</div></div>
+<div id="err">
+  <div style="font-size:48px">📡</div>
+  <h2>Stream Unavailable</h2>
+  <p>This stream could not be loaded. The link may have expired.</p>
+  <div style="display:flex;gap:8px;margin-top:6px;flex-wrap:wrap;justify-content:center">
+    <button class="eb ep" onclick="location.reload()">↻ Try Again</button>
+    <button class="eb eg" onclick="navigator.clipboard&&navigator.clipboard.writeText('${url}').then(()=>{this.textContent='✓ Copied!'})">⎘ Copy URL</button>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@1.4.12/dist/hls.min.js"><\/script>
+<script>
+var src = ${JSON.stringify(url)};
+var v = document.getElementById('v');
+var ld = document.getElementById('load');
+var er = document.getElementById('err');
+function ok(){ ld.style.display='none'; v.classList.remove('h'); v.play().catch(function(){}); }
+function fail(){ ld.style.display='none'; v.classList.add('h'); er.style.display='flex'; }
+if(typeof Hls!=='undefined'&&Hls.isSupported()){
+  var h=new Hls({enableWorker:false,lowLatencyMode:true});
+  h.loadSource(src); h.attachMedia(v);
+  h.on(Hls.Events.MANIFEST_PARSED,ok);
+  h.on(Hls.Events.ERROR,function(e,d){if(d.fatal)fail();});
+}else if(v.canPlayType('application/vnd.apple.mpegurl')){
+  v.src=src;
+  v.addEventListener('loadedmetadata',ok,{once:true});
+  v.addEventListener('error',fail,{once:true});
+}else{ fail(); }
+var ht; function rh(){ document.getElementById('topbar').classList.remove('hide'); clearTimeout(ht); ht=setTimeout(function(){if(!v.paused)document.getElementById('topbar').classList.add('hide');},3500); }
+document.addEventListener('mousemove',rh); document.addEventListener('touchstart',rh);
+<\/script>
+</body>
+</html>`;
+  const blob = new Blob([page], { type: 'text/html' });
+  const blobUrl = URL.createObjectURL(blob);
+  const win = window.open(blobUrl, '_blank');
+  setTimeout(() => URL.revokeObjectURL(blobUrl), 15000);
+  if (!win) {
+    // Popup blocked — fallback copy
+    navigator.clipboard?.writeText(url).then(() => {
+      alert('Popup was blocked. Stream URL copied to clipboard — paste in a new tab.');
+    });
+  }
 }
 
 /* ── COPY URL ── */
