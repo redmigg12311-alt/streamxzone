@@ -2,492 +2,535 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>StreamZone — Live Sports</title>
+<title>StreamZone — Watch Live Sports Free</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- ═══ SEO ═══ -->
+<meta name="description" content="StreamZone — Watch live cricket, football, tennis, golf and more sports for free. Direct m3u8 streams, no ads, no redirects. Updated in real-time.">
+<meta name="keywords" content="live sports streaming, watch cricket live, live football stream, free sports HD, StreamZone, FanCode streams">
+<meta name="author" content="UltraWebs (HM)">
+<meta name="robots" content="index, follow">
+
+<!-- ═══ PWA / MOBILE ═══ -->
+<meta name="theme-color" content="#ff3355">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="StreamZone">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="StreamZone">
+<meta name="msapplication-TileColor" content="#ff3355">
+
+<!-- ═══ OPEN GRAPH (Facebook, WhatsApp, Telegram, LinkedIn) ═══ -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="StreamZone">
+<meta property="og:title" content="StreamZone — Watch Live Sports Free">
+<meta property="og:description" content="Watch live cricket, football, tennis &amp; more. Direct HD streams, no ads, no redirects. Always up to date.">
+<meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'%3E%3Crect width='1200' height='630' fill='%23050508'/%3E%3Crect width='1200' height='630' fill='url(%23g)'/%3E%3Cdefs%3E%3CradialGradient id='g' cx='20%25' cy='50%25' r='70%25'%3E%3Cstop offset='0' stop-color='%23ff3355' stop-opacity='.18'/%3E%3Cstop offset='1' stop-color='%23050508' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect x='80' y='80' width='56' height='56' rx='14' fill='%23ff3355'/%3E%3Cpolygon points='97,97 136,108 97,119' fill='white'/%3E%3Ctext x='152' y='124' font-family='Arial Black,sans-serif' font-size='48' font-weight='900' fill='white'%3EStream%3C/text%3E%3Ctext x='388' y='124' font-family='Arial Black,sans-serif' font-size='48' font-weight='900' fill='%23ff3355'%3EZone%3C/text%3E%3Ctext x='80' y='260' font-family='Arial,sans-serif' font-size='72' font-weight='900' fill='white'%3EWatch Live Sports%3C/text%3E%3Ctext x='80' y='350' font-family='Arial,sans-serif' font-size='72' font-weight='900' fill='%234d8aff'%3EAnytime. Anywhere.%3C/text%3E%3Ctext x='80' y='440' font-family='Arial,sans-serif' font-size='32' fill='%239090b8'%3ECricket %e2%80%a2 Football %e2%80%a2 Tennis %e2%80%a2 Golf %e2%80%a2 Basketball %e2%80%a2 More%3C/text%3E%3Crect x='80' y='500' width='280' height='60' rx='12' fill='%23ff3355'/%3E%3Ctext x='220' y='537' text-anchor='middle' font-family='Arial,sans-serif' font-size='26' font-weight='700' fill='white'%3E%e2%96%b6 Watch Free Now%3C/text%3E%3Ccircle cx='900' cy='315' r='180' fill='rgba(255,51,85,.06)'/%3E%3Ccircle cx='900' cy='315' r='120' fill='rgba(255,51,85,.06)'/%3E%3Ccircle cx='900' cy='315' r='70' fill='%23ff3355'/%3E%3Cpolygon points='875,285 935,315 875,345' fill='white'/%3E%3C/svg%3E">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/svg+xml">
+<meta property="og:locale" content="en_US">
+
+<!-- ═══ TWITTER CARD ═══ -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@StreamZone">
+<meta name="twitter:title" content="StreamZone — Watch Live Sports Free">
+<meta name="twitter:description" content="Watch live cricket, football, tennis &amp; more. Direct HD streams, no ads, no redirects.">
+<meta name="twitter:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'%3E%3Crect width='1200' height='630' fill='%23050508'/%3E%3Crect x='80' y='80' width='56' height='56' rx='14' fill='%23ff3355'/%3E%3Cpolygon points='97,97 136,108 97,119' fill='white'/%3E%3Ctext x='152' y='124' font-family='Arial Black' font-size='48' font-weight='900' fill='white'%3EStreamZone%3C/text%3E%3Ctext x='80' y='260' font-family='Arial' font-size='72' font-weight='900' fill='white'%3EWatch Live Sports%3C/text%3E%3Ctext x='80' y='350' font-family='Arial' font-size='72' font-weight='900' fill='%234d8aff'%3EAnytime. Anywhere.%3C/text%3E%3C/svg%3E">
+
+<!-- ═══ FAVICON (Multi-size) ═══ -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23ff3355'/%3E%3Cpolygon points='11,8 25,16 11,24' fill='white'/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23ff3355'/%3E%3Cpolygon points='11,8 25,16 11,24' fill='white'/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" sizes="16x16" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' rx='3' fill='%23ff3355'/%3E%3Cpolygon points='5,4 13,8 5,12' fill='white'/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%23ff3355'/%3E%3Cpolygon points='55,45 140,90 55,135' fill='white'/%3E%3C/svg%3E">
+<link rel="mask-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpolygon points='11,8 25,16 11,24' fill='black'/%3E%3C/svg%3E" color="#ff3355">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --bg:#09090e;
-  --surface:#0f0f17;
-  --card:#131320;
-  --lift:#18182a;
-  --border:rgba(255,255,255,.07);
-  --border2:rgba(255,255,255,.12);
-  --fg:#e6e6f0;
-  --fg2:#8888a8;
-  --fg3:#42425a;
-  --red:#e8324a;
-  --blue:#4880ff;
-  --amber:#f0a030;
-  --sans:'Inter',system-ui,sans-serif;
-  --mono:'JetBrains Mono',monospace;
-  --nav:220px;
-  --hdr:56px;
-  --r:8px;
-}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:14px;line-height:1.5;min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.6;min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 a{text-decoration:none;color:inherit}
 button{font-family:var(--sans);cursor:pointer;border:none;background:none}
-img{display:block}
-::-webkit-scrollbar{width:3px;height:3px}
+img{display:block;max-width:100%}
+::-webkit-scrollbar{width:4px;height:4px}
 ::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:var(--fg3);border-radius:2px}
+::-webkit-scrollbar-thumb{background:#2a2a3a;border-radius:4px}
 
-/* ── HEADER ── */
-#hdr{
-  position:fixed;top:0;left:0;right:0;z-index:900;height:var(--hdr);
-  background:rgba(9,9,14,.95);backdrop-filter:blur(20px) saturate(160%);
-  border-bottom:1px solid var(--border);
-  display:flex;align-items:center;padding:0 18px;gap:14px;
+:root{
+  --bg:#050508; --bg2:#080810; --surface:#0d0d18;
+  --card:#0f0f1c; --card2:#13131f; --lift:#16162a;
+  --glass:rgba(255,255,255,.03); --glass2:rgba(255,255,255,.06);
+  --border:rgba(255,255,255,.06); --border2:rgba(255,255,255,.11); --border3:rgba(255,255,255,.2);
+  --fg:#f0f0fa; --fg2:#9090b8; --fg3:#505075; --fg4:#30304a;
+  --red:#ff3355; --red2:#cc1133;
+  --blue:#4d8aff; --blue2:#2255cc;
+  --cyan:#00d4ff; --amber:#ffaa22; --green:#22dd88;
+  --sans:'Outfit',system-ui,sans-serif; --mono:'JetBrains Mono',monospace;
+  --nav:240px; --hdr:62px; --r:10px; --r2:14px;
+  --shadow:0 4px 24px rgba(0,0,0,.6); --shadow2:0 8px 48px rgba(0,0,0,.8);
+  --glow-red:0 0 40px rgba(255,51,85,.15); --glow-blue:0 0 40px rgba(77,138,255,.15);
 }
-.logo{display:flex;align-items:center;gap:9px;flex-shrink:0;width:var(--nav);text-decoration:none}
-.logo-mark{
-  width:28px;height:28px;border-radius:6px;
-  background:var(--red);display:flex;align-items:center;justify-content:center;flex-shrink:0;
-}
-.logo-mark svg{width:12px;height:12px;fill:#fff}
-.logo-name{font-size:14px;font-weight:600;letter-spacing:-.01em;color:var(--fg)}
-.logo-name b{color:var(--red);font-weight:700}
 
-.hdr-search{flex:1;max-width:420px;position:relative;margin:0 auto}
-.hdr-search input{
-  width:100%;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
-  padding:8px 30px 8px 34px;color:var(--fg);font-family:var(--sans);font-size:13px;
-  outline:none;transition:border-color .18s,box-shadow .18s;
-}
-.hdr-search input::placeholder{color:var(--fg3)}
-.hdr-search input:focus{border-color:var(--border2);box-shadow:0 0 0 3px rgba(72,128,255,.1)}
-.hs-icon{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--fg3);pointer-events:none;display:flex;align-items:center}
-.hs-icon svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
-.hs-clear{position:absolute;right:9px;top:50%;transform:translateY(-50%);color:var(--fg3);font-size:11px;display:none;cursor:pointer;transition:color .15s;line-height:1}
-.hs-clear:hover{color:var(--fg)}
-.hs-clear.on{display:block}
+/* NOISE */
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  opacity:.5}
+.ambient{position:fixed;pointer-events:none;z-index:0;border-radius:50%;filter:blur(130px);opacity:.055}
+.amb-1{width:600px;height:600px;background:var(--red);top:-200px;left:-100px}
+.amb-2{width:500px;height:500px;background:var(--blue);bottom:-150px;right:-100px}
 
+/* ═══ PAGE STATES ═══ */
+#pg-load{position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px}
+.load-logo{display:flex;align-items:center;gap:10px}
+.load-mark{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--red),var(--red2));display:flex;align-items:center;justify-content:center;box-shadow:var(--glow-red)}
+.load-mark svg{width:18px;height:18px;fill:#fff}
+.load-name{font-size:28px;font-weight:900;letter-spacing:-.05em}
+.load-name b{background:linear-gradient(90deg,var(--red),#ff7799);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.load-bar{width:200px;height:2px;background:var(--border2);border-radius:2px;overflow:hidden}
+.load-bar-fill{height:100%;background:linear-gradient(90deg,var(--red),var(--blue));animation:loadbar 1.4s ease-in-out infinite}
+@keyframes loadbar{0%{width:0;margin-left:0}50%{width:100%;margin-left:0}100%{width:0;margin-left:100%}}
+.load-note{font-size:12px;color:var(--fg3);letter-spacing:.02em}
+#pg-err{position:fixed;inset:0;z-index:9998;background:var(--bg);display:none;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:24px}
+.err-ico{font-size:48px}.err-h{font-size:22px;font-weight:700;letter-spacing:-.03em}
+.err-p{font-size:13px;color:var(--fg2);max-width:260px;line-height:1.7}
+.retry-btn{margin-top:8px;background:linear-gradient(135deg,var(--red),var(--red2));color:#fff;font-size:13px;font-weight:600;padding:10px 24px;border-radius:var(--r);cursor:pointer;font-family:var(--sans);border:none;box-shadow:var(--glow-red);transition:all .2s}
+.retry-btn:hover{transform:translateY(-2px)}
+
+/* ═══ HEADER ═══ */
+#hdr{position:fixed;top:0;left:0;right:0;z-index:900;height:var(--hdr);background:rgba(5,5,8,.94);backdrop-filter:blur(24px) saturate(180%);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 20px;gap:12px}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0;text-decoration:none}
+.logo-mark{width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,var(--red),#cc0033);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 14px rgba(255,51,85,.38)}
+.logo-mark svg{width:13px;height:13px;fill:#fff}
+.logo-name{font-size:17px;font-weight:900;letter-spacing:-.04em;color:var(--fg)}
+.logo-name b{background:linear-gradient(90deg,var(--red),#ff7799);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hdr-search-wrap{flex:1;max-width:420px;position:relative;margin:0 auto}
+.hdr-search-wrap input{width:100%;background:rgba(255,255,255,.05);border:1px solid var(--border2);border-radius:50px;padding:10px 36px 10px 42px;color:var(--fg);font-family:var(--sans);font-size:14px;outline:none;transition:all .2s}
+.hdr-search-wrap input::placeholder{color:var(--fg3)}
+.hdr-search-wrap input:focus{border-color:rgba(77,138,255,.45);background:rgba(77,138,255,.06);box-shadow:0 0 0 3px rgba(77,138,255,.1)}
+.hs-icon{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:var(--fg3);pointer-events:none;display:flex}
+.hs-icon svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2}
+.hs-clear{position:absolute;right:12px;top:50%;transform:translateY(-50%);color:var(--fg3);cursor:pointer;width:20px;height:20px;background:var(--fg4);border-radius:50%;display:none;align-items:center;justify-content:center;font-size:10px;font-weight:700;transition:all .15s}
+.hs-clear:hover{background:var(--fg2);color:var(--bg)}
+.hs-clear.on{display:flex}
 .hdr-right{display:flex;align-items:center;gap:8px;margin-left:auto;flex-shrink:0}
-.live-chip{
-  display:flex;align-items:center;gap:5px;
-  background:rgba(232,50,74,.08);border:1px solid rgba(232,50,74,.16);
-  color:var(--red);font-size:11px;font-weight:500;letter-spacing:.02em;
-  padding:4px 10px;border-radius:20px;
-}
-.live-dot{width:5px;height:5px;border-radius:50%;background:currentColor;animation:blink 1.2s ease infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
-.icon-btn{
-  width:30px;height:30px;border-radius:6px;
-  background:var(--surface);border:1px solid var(--border);color:var(--fg2);
-  display:flex;align-items:center;justify-content:center;transition:all .15s;
-}
-.icon-btn:hover{border-color:var(--border2);color:var(--fg)}
-.icon-btn svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.icon-btn.spinning svg{animation:spin .6s linear infinite}
+.live-pill{display:flex;align-items:center;gap:6px;background:rgba(255,51,85,.08);border:1px solid rgba(255,51,85,.22);color:var(--red);font-size:12px;font-weight:700;letter-spacing:.04em;padding:6px 12px;border-radius:50px;white-space:nowrap}
+.live-dot{width:6px;height:6px;border-radius:50%;background:currentColor;animation:pulse 1.4s ease infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.8)}}
+.hdr-btn{width:36px;height:36px;border-radius:var(--r);background:var(--glass);border:1px solid var(--border2);color:var(--fg2);display:flex;align-items:center;justify-content:center;transition:all .18s;flex-shrink:0;position:relative}
+.hdr-btn:hover{border-color:var(--border3);color:var(--fg);background:var(--glass2)}
+.hdr-btn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.hdr-btn.spinning svg{animation:spin .7s linear infinite}
+.hdr-btn.active{background:rgba(77,138,255,.12);border-color:rgba(77,138,255,.3);color:var(--blue)}
 @keyframes spin{to{transform:rotate(360deg)}}
+.mob-menu-btn{display:none;width:36px;height:36px;border-radius:var(--r);background:var(--glass);border:1px solid var(--border2);color:var(--fg2);align-items:center;justify-content:center;flex-shrink:0}
+.mob-menu-btn svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
+.mob-search-btn{display:none;width:36px;height:36px;border-radius:var(--r);background:var(--glass);border:1px solid var(--border2);color:var(--fg2);align-items:center;justify-content:center;flex-shrink:0}
+.mob-search-btn svg{width:17px;height:17px;stroke:currentColor;fill:none;stroke-width:2}
 
-/* ── SIDEBAR ── */
-#sidebar{
-  position:fixed;top:var(--hdr);left:0;bottom:0;width:var(--nav);z-index:800;
-  background:rgba(9,9,14,.9);backdrop-filter:blur(18px);
-  border-right:1px solid var(--border);
-  padding:12px 8px 20px;display:flex;flex-direction:column;gap:1px;overflow-y:auto;
-}
-.nav-label{font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--fg3);padding:10px 10px 4px;margin-top:4px}
-.nav-item{
-  display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:var(--r);
-  font-size:13px;font-weight:400;color:var(--fg2);cursor:pointer;transition:all .15s;
-  width:100%;text-align:left;border:1px solid transparent;
-}
-.nav-item:hover{background:rgba(255,255,255,.04);color:var(--fg)}
-.nav-item.on{background:rgba(72,128,255,.1);color:var(--blue);border-color:rgba(72,128,255,.16);font-weight:500}
-.nav-ico{width:16px;text-align:center;flex-shrink:0;font-size:13px}
-.nav-num{margin-left:auto;font-size:10px;font-weight:500;color:var(--fg3);background:var(--surface);border:1px solid var(--border);padding:1px 6px;border-radius:20px}
-.nav-item.on .nav-num{background:rgba(72,128,255,.12);border-color:rgba(72,128,255,.2);color:var(--blue)}
-.nav-rule{height:1px;background:var(--border);margin:6px 8px}
+/* ═══ SIDEBAR ═══ */
+#sidebar-overlay{display:none;position:fixed;inset:0;z-index:799;background:rgba(0,0,0,.6);backdrop-filter:blur(4px)}
+#sidebar-overlay.on{display:block}
+#sidebar{position:fixed;top:var(--hdr);left:0;bottom:0;width:var(--nav);z-index:800;background:rgba(5,5,8,.96);backdrop-filter:blur(20px);border-right:1px solid var(--border);padding:14px 10px 24px;display:flex;flex-direction:column;gap:2px;overflow-y:auto;overflow-x:hidden;transition:transform .3s cubic-bezier(.4,0,.2,1)}
+.nav-section{margin-top:4px}
+.nav-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--fg4);padding:8px 12px 5px}
+.nav-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:var(--r);font-size:14px;font-weight:500;color:var(--fg3);cursor:pointer;transition:all .16s;width:100%;text-align:left;border:1px solid transparent;position:relative}
+.nav-item:hover{background:var(--glass2);color:var(--fg2)}
+.nav-item.on{background:rgba(77,138,255,.1);color:var(--blue);border-color:rgba(77,138,255,.15)}
+.nav-item.on::before{content:'';position:absolute;left:0;top:20%;bottom:20%;width:2px;border-radius:2px;background:var(--blue)}
+.nav-ico{width:18px;text-align:center;flex-shrink:0;font-size:14px;line-height:1}
+.nav-num{margin-left:auto;font-size:10px;font-weight:600;color:var(--fg4);background:var(--glass2);border:1px solid var(--border);padding:1px 7px;border-radius:20px}
+.nav-item.on .nav-num{background:rgba(77,138,255,.12);border-color:rgba(77,138,255,.2);color:var(--blue)}
+.nav-divider{height:1px;background:var(--border);margin:8px 10px}
 
-/* ── CONTENT ── */
-#content{margin-left:var(--nav);padding-top:var(--hdr);min-height:100vh}
+/* ═══ CONTENT ═══ */
+#content{margin-left:var(--nav);padding-top:var(--hdr);min-height:100vh;position:relative;z-index:1}
 
-/* ── HERO ── */
-#hero{padding:22px 24px 0;display:none}
-.hero-inner{
-  position:relative;overflow:hidden;border-radius:12px;
-  background:var(--card);border:1px solid var(--border);padding:28px 32px;
-}
-.hero-inner::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 50% 90% at 8% 50%,rgba(72,128,255,.06),transparent),
-             radial-gradient(ellipse 35% 70% at 92% 30%,rgba(232,50,74,.04),transparent);
-  pointer-events:none;
-}
-.hero-tag{
-  display:inline-flex;align-items:center;gap:5px;
-  background:rgba(232,50,74,.08);border:1px solid rgba(232,50,74,.14);
-  color:var(--red);font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;
-  padding:3px 9px;border-radius:20px;margin-bottom:12px;position:relative;z-index:1;
-}
-.hero-h{
-  font-size:clamp(20px,2.8vw,30px);font-weight:600;line-height:1.2;
-  letter-spacing:-.03em;margin-bottom:7px;position:relative;z-index:1;
-}
-.hero-h em{color:var(--blue);font-style:normal}
-.hero-p{font-size:13px;color:var(--fg2);line-height:1.6;max-width:340px;margin-bottom:22px;position:relative;z-index:1;font-weight:300}
-.hero-stats{display:flex;gap:28px;flex-wrap:wrap;position:relative;z-index:1}
-.stat .n{font-size:28px;font-weight:700;line-height:1;letter-spacing:-.04em}
-.stat .n.r{color:var(--red)}.stat .n.a{color:var(--amber)}.stat .n.b{color:var(--blue)}
-.stat .l{font-size:10px;font-weight:400;color:var(--fg3);text-transform:uppercase;letter-spacing:.06em;margin-top:3px}
-.hero-deco{position:absolute;right:32px;top:50%;transform:translateY(-50%);font-size:80px;opacity:.03;pointer-events:none;animation:float 8s ease-in-out infinite alternate}
-@keyframes float{from{transform:translateY(-50%) rotate(-4deg)}to{transform:translateY(-54%) rotate(3deg)}}
+/* ═══ HERO ═══ */
+#hero{padding:26px 26px 0;display:none}
+.hero-inner{position:relative;overflow:hidden;border-radius:var(--r2);background:linear-gradient(135deg,rgba(255,51,85,.06),rgba(77,138,255,.04) 50%,transparent);border:1px solid var(--border2);padding:34px 38px}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,51,85,.1);border:1px solid rgba(255,51,85,.2);color:var(--red);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:50px;margin-bottom:14px;position:relative;z-index:1}
+.hero-h{font-size:clamp(26px,4vw,46px);font-weight:900;line-height:1.1;letter-spacing:-.05em;margin-bottom:10px;position:relative;z-index:1}
+.hero-h em{background:linear-gradient(90deg,var(--blue),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:normal}
+.hero-p{font-size:15px;color:var(--fg2);line-height:1.7;max-width:380px;margin-bottom:26px;position:relative;z-index:1;font-weight:300}
+.hero-stats{display:flex;gap:32px;flex-wrap:wrap;position:relative;z-index:1}
+.stat-n{font-size:36px;font-weight:900;line-height:1;letter-spacing:-.06em}
+.stat-n.r{color:var(--red)}.stat-n.a{color:var(--amber)}.stat-n.b{color:var(--blue)}
+.stat-l{font-size:11px;font-weight:700;color:var(--fg3);text-transform:uppercase;letter-spacing:.1em;margin-top:4px}
+.hero-deco{position:absolute;right:38px;top:50%;transform:translateY(-50%);font-size:100px;opacity:.04;pointer-events:none;animation:heroFloat 10s ease-in-out infinite alternate}
+@keyframes heroFloat{from{transform:translateY(-50%) rotate(-6deg)}to{transform:translateY(-56%) rotate(4deg)}}
+/* PWA install banner */
+#install-bar{display:none;background:linear-gradient(90deg,rgba(77,138,255,.12),rgba(0,212,255,.06));border:1px solid rgba(77,138,255,.2);border-radius:var(--r);padding:10px 16px;margin:16px 26px 0;align-items:center;gap:12px;animation:fadeUp .4s ease}
+#install-bar.show{display:flex}
+.install-text{flex:1;font-size:13px;color:var(--fg2);font-weight:400}
+.install-text strong{color:var(--fg);font-weight:600}
+.install-btn{background:var(--blue);color:#fff;font-size:12px;font-weight:600;padding:6px 14px;border-radius:7px;cursor:pointer;font-family:var(--sans);border:none;flex-shrink:0}
+.install-close{color:var(--fg3);font-size:18px;cursor:pointer;flex-shrink:0;line-height:1}
 
-/* ── SECTION ── */
-.sec{padding:22px 24px 0}
-.sec-head{display:flex;align-items:center;gap:8px;margin-bottom:14px}
-.sec-label{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
-.sec-label.r{color:var(--red)}.sec-label.a{color:var(--amber)}
-.sec-count{background:var(--surface);border:1px solid var(--border);font-size:10px;font-weight:500;color:var(--fg3);padding:1px 6px;border-radius:20px}
-.sec-line{flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent)}
+/* ═══ STARTING SOON ═══ */
+#sec-soon{padding:22px 26px 0;display:none}
+.soon-scroll{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.soon-scroll::-webkit-scrollbar{display:none}
+.soon-chip{flex-shrink:0;background:var(--card);border:1px solid rgba(255,170,34,.2);border-radius:var(--r);padding:10px 14px;min-width:180px;cursor:pointer;transition:all .18s}
+.soon-chip:hover{border-color:rgba(255,170,34,.4);transform:translateY(-2px)}
+.soon-sport{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:4px}
+.soon-title{font-size:12px;font-weight:600;line-height:1.3;margin-bottom:6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.soon-cd{font-size:13px;font-weight:700;color:var(--amber);font-family:var(--mono)}
 
-/* ── GRID ── */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(252px,1fr));gap:11px;padding-bottom:24px}
+/* ═══ SECTIONS ═══ */
+.sec{padding:22px 26px 0}
+.sec-head{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.sec-title{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.sec-title.r{color:var(--red)}.sec-title.a{color:var(--amber)}
+.sec-badge{background:var(--glass2);border:1px solid var(--border);font-size:10px;font-weight:600;color:var(--fg3);padding:2px 8px;border-radius:20px}
+.sec-line{flex:1;height:1px;background:linear-gradient(90deg,var(--border2),transparent)}
 
-/* ── CARD ── */
-.mcard{
-  background:var(--card);border:1px solid var(--border);border-radius:11px;
-  overflow:hidden;cursor:pointer;
-  transition:transform .22s cubic-bezier(.34,1.4,.64,1),border-color .2s,box-shadow .2s;
-  animation:fadeup .3s ease both;
-}
-@keyframes fadeup{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
-.mcard:hover{transform:translateY(-3px) scale(1.007);border-color:rgba(255,255,255,.1);box-shadow:0 10px 32px rgba(0,0,0,.5)}
-.mcard.live-card:hover{border-color:rgba(232,50,74,.18);box-shadow:0 10px 32px rgba(0,0,0,.5)}
-
+/* ═══ GRID & CARDS ═══ */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;padding-bottom:26px}
+.mcard{background:var(--card);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;cursor:pointer;transition:transform .25s cubic-bezier(.34,1.4,.64,1),border-color .2s,box-shadow .2s;animation:fadeUp .35s ease both;position:relative;display:flex;flex-direction:column}
+.mcard::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(135deg,rgba(255,255,255,.015),transparent 60%);border-radius:inherit}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.mcard:hover{transform:translateY(-4px) scale(1.008);border-color:var(--border2);box-shadow:var(--shadow2)}
+.mcard.live-card:hover{border-color:rgba(255,51,85,.22);box-shadow:0 12px 40px rgba(0,0,0,.7),var(--glow-red)}
 .mc-thumb{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--surface)}
-.mc-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .34s cubic-bezier(.4,0,.2,1);object-position:top}
-.mcard:hover .mc-thumb img{transform:scale(1.05)}
-.mc-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:36px}
-.mc-hover{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.22);opacity:0;transition:opacity .18s}
-.mcard:hover .mc-hover{opacity:1}
-.play-btn{
-  width:42px;height:42px;border-radius:50%;
-  background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.28);
-  backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;
-  transition:transform .16s,background .16s;
+.mc-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s;object-position:top}
+.mcard:hover .mc-thumb img{transform:scale(1.07)}
+.mc-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:40px;background:linear-gradient(135deg,var(--surface),var(--card2))}
+.mc-overlay{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.28);opacity:0;transition:opacity .2s}
+.mcard:hover .mc-overlay{opacity:1}
+.play-ring{width:50px;height:50px;border-radius:50%;background:rgba(255,255,255,.14);border:1.5px solid rgba(255,255,255,.35);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;transition:transform .18s,background .18s}
+.mcard:hover .play-ring{transform:scale(1.1);background:rgba(255,255,255,.22)}
+.play-ring svg{width:15px;height:15px;fill:#fff;margin-left:2px}
+.mc-badge{position:absolute;top:10px;left:10px;z-index:5;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:3px 9px;border-radius:6px;display:flex;align-items:center;gap:4px}
+.bdg-live{background:var(--red);color:#fff;box-shadow:0 2px 10px rgba(255,51,85,.4)}
+.bdg-up{background:rgba(0,0,0,.7);color:var(--amber);border:1px solid rgba(255,170,34,.25);backdrop-filter:blur(8px)}
+.mc-cat{position:absolute;top:10px;right:10px;z-index:5;background:rgba(0,0,0,.65);color:rgba(255,255,255,.5);font-size:9px;font-weight:600;padding:3px 8px;border-radius:5px;text-transform:uppercase;backdrop-filter:blur(8px)}
+/* Fav button on card */
+.mc-thumb-fade{position:absolute;bottom:0;left:0;right:0;height:40%;z-index:2;background:linear-gradient(transparent,rgba(13,13,25,.9));pointer-events:none}
+.mc-body{padding:14px 15px 16px;position:relative;z-index:1;display:flex;flex-direction:column;flex:1}
+.mc-league{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--fg3);margin-bottom:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mc-title{font-size:15px;font-weight:700;line-height:1.35;margin-bottom:8px;letter-spacing:-.02em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;color:var(--fg)}
+.mc-teams{display:flex;align-items:center;gap:6px;margin-bottom:8px;flex-wrap:wrap}
+.mc-team{font-size:13px;color:var(--fg2);font-weight:600}
+.mc-vs{font-size:9px;font-weight:700;color:var(--fg4);background:var(--glass2);border:1px solid var(--border);padding:2px 7px;border-radius:4px;text-transform:uppercase}
+.mc-time{font-size:12px;color:var(--fg3);margin-bottom:12px;display:flex;align-items:center;gap:5px;font-weight:500}
+.mc-time svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;flex-shrink:0;opacity:.6}
+.mc-foot{display:flex;flex-direction:column;gap:8px;margin-top:auto;padding-top:4px}
+/* countdown on card */
+.mc-cd{font-size:12px;font-family:var(--mono);color:var(--amber);background:rgba(255,170,34,.08);border:1px solid rgba(255,170,34,.2);padding:7px 10px;border-radius:8px;letter-spacing:.02em;font-weight:600;text-align:center;width:100%}
+
+/* BUTTONS */
+.w-btn{display:flex;align-items:center;justify-content:center;gap:6px;font-size:13px;font-weight:700;padding:11px 16px;border-radius:9px;transition:all .18s;letter-spacing:-.01em;font-family:var(--sans);width:100%;text-align:center}
+.w-btn.primary{background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;box-shadow:0 2px 12px rgba(77,138,255,.28)}
+.w-btn.primary:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(77,138,255,.4)}
+.w-btn.danger{background:linear-gradient(135deg,var(--red),var(--red2));color:#fff;box-shadow:0 2px 12px rgba(255,51,85,.28)}
+.w-btn.danger:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(255,51,85,.4)}
+.w-btn.ghost{background:var(--glass);border:1px solid var(--border2);color:var(--fg3)}
+.w-btn.ghost:hover{border-color:var(--border3);color:var(--fg2);background:var(--glass2)}
+
+.empty{grid-column:1/-1;display:flex;flex-direction:column;align-items:center;padding:60px 20px;gap:10px;text-align:center}
+.empty-ico{font-size:42px;opacity:.15}.empty-h{font-size:15px;font-weight:700;color:var(--fg2)}.empty-p{font-size:12px;color:var(--fg3);max-width:200px;line-height:1.7}
+
+/* ═══ SCHEDULE VIEW ═══ */
+
+/* ═══ SCHEDULE VIEW ═══ */
+#schedule-modal{position:fixed;inset:0;z-index:1800;background:rgba(0,0,0,.88);backdrop-filter:blur(18px);display:none;align-items:center;justify-content:center;padding:16px}
+#schedule-modal.open{display:flex}
+.sched-wrap{width:100%;max-width:700px;max-height:calc(100vh - 32px);background:var(--card);border:1px solid var(--border2);border-radius:var(--r2);display:flex;flex-direction:column;overflow:hidden;animation:popIn .22s cubic-bezier(.34,1.4,.64,1)}
+.sched-head{display:flex;align-items:center;gap:10px;padding:14px 18px;background:var(--lift);border-bottom:1px solid var(--border);flex-shrink:0}
+.sched-title{font-size:15px;font-weight:700;flex:1;letter-spacing:-.02em}
+.sched-close{width:28px;height:28px;border-radius:7px;background:var(--glass2);border:1px solid var(--border);color:var(--fg2);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .15s}
+.sched-close:hover{background:rgba(255,51,85,.12);color:var(--red)}
+.sched-close svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round}
+.sched-tabs{display:flex;gap:4px;padding:12px 18px;border-bottom:1px solid var(--border);flex-shrink:0;overflow-x:auto;scrollbar-width:none}
+.sched-tabs::-webkit-scrollbar{display:none}
+.sched-tab{padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer;border:1px solid var(--border);color:var(--fg3);transition:all .15s;white-space:nowrap}
+.sched-tab.on{background:rgba(77,138,255,.12);border-color:rgba(77,138,255,.25);color:var(--blue)}
+.sched-body{flex:1;overflow-y:auto;padding:16px 18px}
+.sched-group{margin-bottom:20px}
+.sched-group-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--fg3);margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.sched-row{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:var(--r);background:var(--glass);border:1px solid var(--border);margin-bottom:6px;cursor:pointer;transition:all .16s}
+.sched-row:hover{background:var(--glass2);border-color:var(--border2)}
+.sched-row.live-row{border-color:rgba(255,51,85,.18);background:rgba(255,51,85,.04)}
+.sched-sport{font-size:16px;flex-shrink:0}
+.sched-info{flex:1;min-width:0}
+.sched-name{font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:-.01em}
+.sched-league{font-size:10px;color:var(--fg3);margin-top:1px;text-transform:uppercase;letter-spacing:.07em;font-weight:600}
+.sched-time{font-size:11px;color:var(--fg3);font-family:var(--mono);flex-shrink:0;text-align:right}
+.sched-live-dot{width:7px;height:7px;border-radius:50%;background:var(--red);flex-shrink:0;animation:pulse 1.4s ease infinite}
+.sched-cd{font-size:10px;color:var(--amber);font-family:var(--mono);font-weight:600;flex-shrink:0}
+
+/* ═══ FAVORITES INDICATOR ═══ */
+.fav-section{padding:20px 26px 0}
+
+/* ═══ KEYBOARD SHORTCUTS MODAL ═══ */
+#shortcuts-modal{position:fixed;inset:0;z-index:1900;background:rgba(0,0,0,.85);backdrop-filter:blur(16px);display:none;align-items:center;justify-content:center;padding:16px}
+#shortcuts-modal.open{display:flex}
+.shortcuts-wrap{width:100%;max-width:420px;background:var(--card);border:1px solid var(--border2);border-radius:var(--r2);padding:24px;animation:popIn .2s ease}
+.sc-title{font-size:16px;font-weight:700;letter-spacing:-.03em;margin-bottom:18px;display:flex;align-items:center;justify-content:space-between}
+.sc-close{color:var(--fg3);cursor:pointer;font-size:20px;line-height:1}
+.sc-close:hover{color:var(--fg)}
+.sc-row{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border)}
+.sc-row:last-child{border-bottom:none}
+.sc-desc{font-size:13px;color:var(--fg2)}
+.sc-key{display:flex;gap:4px}
+.kbd{background:var(--lift);border:1px solid var(--border2);border-radius:5px;padding:3px 8px;font-size:11px;font-family:var(--mono);color:var(--fg);font-weight:500}
+
+/* ═══ TOAST ═══ */
+#toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(60px);z-index:9999;background:rgba(22,22,42,.97);border:1px solid var(--border2);backdrop-filter:blur(20px);color:var(--fg);font-size:13px;font-weight:500;padding:10px 20px;border-radius:50px;opacity:0;transition:all .25s cubic-bezier(.34,1.4,.64,1);pointer-events:none;white-space:nowrap;box-shadow:var(--shadow2)}
+#toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+
+/* ═══ FOOTER ═══ */
+#footer{margin-left:var(--nav);border-top:1px solid var(--border);padding:16px 26px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:11px;color:var(--fg3);position:relative;z-index:1}
+.footer-logo{font-size:13px;font-weight:900;letter-spacing:-.04em;color:var(--fg2)}
+.footer-logo b{background:linear-gradient(90deg,var(--red),#ff6688);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.footer-links{display:flex;gap:16px}
+.footer-links a{color:var(--fg3);transition:color .15s}.footer-links a:hover{color:var(--fg2)}
+
+/* ═══ MOBILE SEARCH OVERLAY ═══ */
+#mob-search-overlay{display:none;position:fixed;inset:0;z-index:1100;background:var(--bg);flex-direction:column}
+#mob-search-overlay.open{display:flex}
+.mob-search-bar{flex-shrink:0;display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(8,8,18,.98);border-bottom:1px solid var(--border2)}
+.mob-si{color:var(--fg3);flex-shrink:0;display:flex}
+.mob-si svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2}
+#mob-q-input{flex:1;background:none;border:none;outline:none;color:var(--fg);font-family:var(--sans);font-size:17px;font-weight:400;caret-color:var(--blue);padding:4px 0}
+#mob-q-input::placeholder{color:var(--fg3)}
+.mob-search-cancel{color:var(--blue);font-size:15px;font-weight:600;cursor:pointer;flex-shrink:0;padding:4px 0;white-space:nowrap;font-family:var(--sans);background:none;border:none}
+#mob-search-results{flex:1;overflow-y:auto;padding:16px 14px 32px}
+#mob-search-results .grid{grid-template-columns:1fr 1fr;gap:10px;padding-bottom:0}
+.mob-empty{display:flex;flex-direction:column;align-items:center;padding:60px 20px;gap:10px;text-align:center}
+.mob-empty-ico{font-size:40px;opacity:.15}.mob-empty-h{font-size:15px;font-weight:700;color:var(--fg2)}.mob-empty-p{font-size:13px;color:var(--fg3);max-width:200px;line-height:1.6}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:1024px){:root{--nav:200px}}
+@media(max-width:840px){
+  :root{--nav:0px;--hdr:58px}
+  #sidebar{transform:translateX(-100%);width:270px;z-index:1001}
+  #sidebar.open{transform:translateX(0)}
+  #content,#footer{margin-left:0}
+  .mob-menu-btn{display:flex}
+  .logo{width:auto}
+  #hero{padding:16px 16px 0}
+  .hero-inner{padding:24px 22px}.hero-deco{display:none}
+  .sec,.fav-section,#sec-soon{padding-left:16px;padding-right:16px}
+  #install-bar{margin:12px 16px 0}
+  .grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
 }
-.mcard:hover .play-btn{transform:scale(1.08);background:rgba(255,255,255,.18)}
-.play-btn svg{width:13px;height:13px;fill:#fff;margin-left:2px}
-
-.badge{position:absolute;top:8px;left:8px;z-index:5;font-size:9px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:3px 7px;border-radius:4px;display:flex;align-items:center;gap:3px}
-.bdg-live{background:var(--red);color:#fff;box-shadow:0 2px 7px rgba(232,50,74,.3)}
-.bdg-up{background:rgba(0,0,0,.65);color:var(--amber);border:1px solid rgba(240,160,48,.2);backdrop-filter:blur(6px)}
-.cat-tag{position:absolute;top:8px;right:8px;z-index:5;background:rgba(0,0,0,.65);color:rgba(255,255,255,.55);font-size:9px;font-weight:500;padding:3px 7px;border-radius:4px;text-transform:uppercase;backdrop-filter:blur(6px)}
-
-.mc-body{padding:12px 13px 14px}
-.mc-league{font-size:9px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--fg3);margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.mc-title{font-size:13px;font-weight:600;line-height:1.3;margin-bottom:5px;letter-spacing:-.01em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.mc-teams{display:flex;align-items:center;gap:5px;margin-bottom:4px}
-.mc-team{font-size:11px;font-weight:400;color:var(--fg2)}
-.mc-vs{font-size:8.5px;font-weight:600;color:var(--fg3);background:var(--surface);padding:1px 5px;border-radius:3px}
-.mc-time{font-size:10px;color:var(--fg3);margin-bottom:11px;display:flex;align-items:center;gap:3px}
-.mc-time svg{width:10px;height:10px;stroke:currentColor;fill:none;stroke-width:2;flex-shrink:0}
-.mc-foot{display:flex;gap:6px;align-items:center}
-
-.w-btn{
-  display:inline-flex;align-items:center;gap:5px;
-  font-size:12px;font-weight:500;padding:7px 13px;border-radius:6px;
-  transition:all .17s;letter-spacing:-.01em;
+@media(max-width:600px){
+  :root{--hdr:56px}
+  #hdr{padding:0 12px;gap:8px}
+  .hdr-search-wrap{display:none}
+  .mob-search-btn{display:flex}
+  .live-label{display:none}
+  .live-pill{padding:5px 10px;gap:5px;font-size:13px}
+  .mc-title{font-size:13px}.mc-league{font-size:10px}.mc-team{font-size:12px}.mc-time{font-size:11px}
+  .w-btn{font-size:12px;padding:10px 14px}
+  .hero-h{font-size:clamp(22px,6vw,30px)}.hero-stats{gap:20px}.stat-n{font-size:28px}
+  .grid{grid-template-columns:1fr 1fr;gap:10px}
+  .mc-body{padding:10px 12px 14px}
+  #footer{padding:12px 16px;flex-direction:column;gap:8px}.footer-links{display:none}
 }
-.w-btn.primary{background:var(--blue);color:#fff;box-shadow:0 2px 9px rgba(72,128,255,.22)}
-.w-btn.primary:hover{background:#3368e0;transform:translateY(-1px);box-shadow:0 4px 13px rgba(72,128,255,.32)}
-.w-btn.ghost{background:var(--surface);border:1px solid var(--border);color:var(--fg2)}
-.w-btn.ghost:hover{border-color:var(--border2);color:var(--fg);transform:translateY(-1px)}
-
-/* ── EMPTY ── */
-.empty{grid-column:1/-1;display:flex;flex-direction:column;align-items:center;padding:50px 20px;gap:7px;text-align:center}
-.empty-ico{font-size:34px;opacity:.22}
-.empty-h{font-size:14px;font-weight:600;color:var(--fg);letter-spacing:-.01em}
-.empty-p{font-size:12px;color:var(--fg3);max-width:190px;line-height:1.6;font-weight:300}
-
-/* ── FOOTER ── */
-#footer{margin-left:var(--nav);border-top:1px solid var(--border);padding:13px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:11px;color:var(--fg3)}
-.footer-logo{font-size:12px;font-weight:600;letter-spacing:-.01em;color:var(--fg2)}
-.footer-logo b{color:var(--red)}
-
-/* ── PAGE LOADING ── */
-#pg-load{position:fixed;inset:0;z-index:1999;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px}
-.load-name{font-size:22px;font-weight:600;letter-spacing:-.03em;color:var(--fg)}
-.load-name b{color:var(--red)}
-.load-ring{width:32px;height:32px;border:2px solid var(--border);border-top-color:var(--blue);border-radius:50%;animation:spin .7s linear infinite}
-.load-note{font-size:12px;color:var(--fg3);font-weight:300}
-#pg-err{position:fixed;inset:0;z-index:1998;background:var(--bg);display:none;flex-direction:column;align-items:center;justify-content:center;gap:11px;text-align:center;padding:24px}
-.err-ico{font-size:38px}.err-h{font-size:18px;font-weight:600;letter-spacing:-.02em}.err-p{font-size:13px;color:var(--fg2);max-width:250px;line-height:1.6;font-weight:300}
-.retry-btn{margin-top:6px;background:var(--blue);color:#fff;font-size:13px;font-weight:500;padding:9px 20px;border-radius:var(--r);cursor:pointer;font-family:var(--sans);transition:background .17s;border:none}
-.retry-btn:hover{background:#3368e0}
-
-/* ═══════════════════════════════════════
-   PLAYER MODAL
-═══════════════════════════════════════ */
-#modal{
-  position:fixed;inset:0;z-index:2000;
-  background:rgba(0,0,0,.88);backdrop-filter:blur(18px) saturate(140%);
-  display:none;align-items:center;justify-content:center;padding:14px;
+@media(max-width:400px){
+  .grid{grid-template-columns:1fr}
+  .logo-name{font-size:15px}
 }
-#modal.open{display:flex}
-.modal-wrap{
-  width:100%;max-width:960px;
-  background:var(--card);border:1px solid var(--border2);border-radius:12px;
-  overflow:hidden;box-shadow:0 36px 90px rgba(0,0,0,.8);
-  animation:popIn .2s cubic-bezier(.34,1.4,.64,1);
-  display:flex;flex-direction:column;max-height:calc(100vh - 28px);
-}
-@keyframes popIn{from{opacity:0;transform:scale(.93) translateY(6px)}to{opacity:1;transform:scale(1) translateY(0)}}
-
-/* modal header */
-.m-head{
-  display:flex;align-items:center;gap:11px;
-  padding:11px 15px;background:var(--lift);border-bottom:1px solid var(--border);flex-shrink:0;
-}
-.m-meta{flex:1;min-width:0}
-.m-live-tag{
-  display:none;align-items:center;gap:4px;
-  background:rgba(232,50,74,.1);border:1px solid rgba(232,50,74,.2);
-  color:var(--red);font-size:9px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
-  padding:2px 7px;border-radius:3px;margin-bottom:3px;width:fit-content;
-}
-.m-live-tag.on{display:flex}
-.m-title{font-size:14px;font-weight:600;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.m-sub{font-size:11px;color:var(--fg3);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:300}
-.m-close{
-  width:27px;height:27px;border-radius:6px;flex-shrink:0;
-  background:var(--surface);border:1px solid var(--border);color:var(--fg2);
-  display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .15s;
-}
-.m-close:hover{background:rgba(232,50,74,.1);border-color:rgba(232,50,74,.18);color:var(--red)}
-.m-close svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round}
-
-/* player viewport */
-.player-area{position:relative;aspect-ratio:16/9;width:100%;background:#000;flex-shrink:0;overflow:hidden;max-height:60vh}
-
-@media(max-width:580px){
-  .player-area{aspect-ratio:unset;height:220px;max-height:unset}
-}
-
-.p-loading{
-  position:absolute;inset:0;z-index:30;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:11px;
-  background:#000;pointer-events:none;
-}
-.p-ring{width:38px;height:38px;border:2.5px solid rgba(255,255,255,.1);border-top-color:var(--red);border-radius:50%;animation:spin .75s linear infinite}
-.p-text{font-size:12px;color:rgba(255,255,255,.32);font-weight:300;letter-spacing:.01em}
-
-.p-empty{position:absolute;inset:0;z-index:40;display:none;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:#000;text-align:center;padding:24px}
-.p-empty.show{display:flex}
-.pe-ico{font-size:36px}.pe-h{font-size:14px;font-weight:600;letter-spacing:-.01em}.pe-p{font-size:12px;color:var(--fg3);line-height:1.6;max-width:230px;font-weight:300}
-
-/* THE IFRAME — we load a sanitized blob URL here */
-#player-frame{
-  position:absolute;inset:0;width:100%;height:100%;
-  border:none;background:#000;z-index:10;
-  opacity:0;transition:opacity .28s;display:none;
-}
-#player-frame.active{display:block}
-#player-frame.ready{opacity:1}
-
-/* modal footer */
-.m-foot{
-  padding:9px 15px;background:var(--lift);border-top:1px solid var(--border);
-  display:flex;align-items:center;gap:9px;flex-wrap:wrap;flex-shrink:0;
-}
-.m-foot-label{font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--fg3);flex-shrink:0}
-.m-url-wrap{flex:1;min-width:0}
-.m-url{
-  display:block;font-family:var(--mono);font-size:10px;color:var(--fg2);
-  background:var(--surface);border:1px solid var(--border);border-radius:5px;
-  padding:5px 9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-  cursor:pointer;transition:border-color .14s,color .14s;
-}
-.m-url:hover{border-color:var(--border2);color:var(--fg)}
-.m-actions{display:flex;gap:5px;flex-shrink:0}
-.m-btn{
-  background:var(--surface);border:1px solid var(--border);color:var(--fg2);
-  font-size:11px;font-weight:500;padding:5px 10px;border-radius:5px;
-  cursor:pointer;font-family:var(--sans);transition:all .14s;display:flex;align-items:center;gap:3px;
-}
-.m-btn:hover{border-color:var(--border2);color:var(--fg)}
-.m-btn.accent{background:var(--blue);border-color:var(--blue);color:#fff}
-.m-btn.accent:hover{background:#3368e0}
-
-/* ── TOAST ── */
-#toast{
-  position:fixed;bottom:16px;right:16px;z-index:9999;
-  background:var(--lift);border:1px solid var(--border2);backdrop-filter:blur(20px);
-  color:var(--fg);font-size:12px;font-weight:400;padding:8px 14px;border-radius:var(--r);
-  transform:translateY(46px);opacity:0;transition:all .2s cubic-bezier(.34,1.4,.64,1);pointer-events:none;letter-spacing:.01em;
-}
-#toast.show{transform:translateY(0);opacity:1}
-
-/* ── RESPONSIVE ── */
-@media(max-width:840px){:root{--nav:0px}#sidebar{display:none}#footer{margin-left:0}.hero-deco{display:none}}
-@media(max-width:580px){#hdr{padding:0 11px;gap:9px}#hero,.sec{padding-left:13px;padding-right:13px}.hero-inner{padding:20px 18px}.grid{grid-template-columns:1fr 1fr;gap:9px}.m-foot{flex-wrap:wrap}.m-url-wrap{width:100%;order:3}}
-@media(max-width:380px){.grid{grid-template-columns:1fr}.logo-name{display:none}}
 </style>
 </head>
 <body>
+<div class="ambient amb-1"></div>
+<div class="ambient amb-2"></div>
 
+<!-- Loading -->
 <div id="pg-load">
-  <div class="load-name">Stream<b>Zone</b></div>
-  <div class="load-ring"></div>
-  <div class="load-note">Loading matches…</div>
+  <div class="load-logo">
+    <div class="load-mark"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+    <div class="load-name">Stream<b>Zone</b></div>
+  </div>
+  <div class="load-bar"><div class="load-bar-fill"></div></div>
+  <div class="load-note">Fetching live matches…</div>
 </div>
-<div id="pg-err" style="display:none">
-  <div class="err-ico">📡</div>
-  <div class="err-h">Connection Failed</div>
-  <div class="err-p">Could not load match data. Check your connection and try again.</div>
-  <button class="retry-btn" onclick="loadData()">Retry</button>
+<div id="pg-err">
+  <div class="err-ico">📡</div><div class="err-h">Connection Failed</div>
+  <div class="err-p">Could not load match data. Check your connection.</div>
+  <button class="retry-btn" onclick="loadData()">Try Again</button>
 </div>
 
-<!-- HEADER -->
+<!-- Header -->
 <div id="hdr">
+  <button class="mob-menu-btn" id="btn-mob-menu" onclick="toggleSidebar()">
+    <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
   <a class="logo" href="#">
-    <div class="logo-mark">
-      <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-    </div>
+    <div class="logo-mark"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
     <span class="logo-name">Stream<b>Zone</b></span>
   </a>
-  <div class="hdr-search">
+  <div class="hdr-search-wrap">
     <span class="hs-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg></span>
-    <input id="q-input" type="text" placeholder="Search matches, teams, sports…" autocomplete="off">
+    <input id="q-input" type="text" placeholder="Search matches, teams, sports… (press S)" autocomplete="off">
     <button class="hs-clear" id="q-clear">✕</button>
   </div>
   <div class="hdr-right">
-    <div class="live-chip"><span class="live-dot"></span><span id="hdr-live">0</span>&thinsp;Live</div>
-    <button class="icon-btn" id="btn-ref" onclick="loadData()" title="Refresh">
+    <button class="mob-search-btn" onclick="openMobSearch()"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg></button>
+    <div class="live-pill"><span class="live-dot"></span><span id="hdr-live">0</span><span class="live-label">&thinsp;Live</span></div>
+    <!-- Schedule -->
+    <button class="hdr-btn" onclick="openSchedule()" title="Schedule (C)">
+      <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    </button>
+    <!-- Refresh -->
+    <button class="hdr-btn" id="btn-ref" onclick="loadData()" title="Refresh (R)">
       <svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+    </button>
+    <!-- Shortcuts help -->
+    <button class="hdr-btn" onclick="openShortcuts()" title="Keyboard Shortcuts (?)">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
     </button>
   </div>
 </div>
 
-<!-- SIDEBAR -->
+<!-- Sidebar overlay -->
+<div id="sidebar-overlay" onclick="closeSidebar()"></div>
+<!-- Sidebar -->
 <div id="sidebar">
-  <div class="nav-label">Browse</div>
-  <button class="nav-item on" onclick="setFilt(this,'all')"><span class="nav-ico">◎</span>All Matches<span class="nav-num" id="nb-all">0</span></button>
-  <button class="nav-item" onclick="setFilt(this,'live')"><span class="nav-ico">🔴</span>Live Now<span class="nav-num" id="nb-live">0</span></button>
-  <button class="nav-item" onclick="setFilt(this,'upcoming')"><span class="nav-ico">⏳</span>Upcoming<span class="nav-num" id="nb-up">0</span></button>
-  <div class="nav-rule"></div>
-  <div class="nav-label">Sports</div>
-  <div id="nav-sports"></div>
+  <div class="nav-section">
+    <div class="nav-label">Browse</div>
+    <button class="nav-item on" onclick="setFilt(this,'all')"><span class="nav-ico">◎</span>All Matches<span class="nav-num" id="nb-all">0</span></button>
+    <button class="nav-item" onclick="setFilt(this,'live')"><span class="nav-ico">🔴</span>Live Now<span class="nav-num" id="nb-live">0</span></button>
+    <button class="nav-item" onclick="setFilt(this,'upcoming')"><span class="nav-ico">⏳</span>Upcoming<span class="nav-num" id="nb-up">0</span></button>
+    </div>
+  <div class="nav-divider"></div>
+  <div class="nav-section">
+    <div class="nav-label">Sports</div>
+    <div id="nav-sports"></div>
+  </div>
 </div>
 
-<!-- CONTENT -->
+<!-- Main content -->
 <div id="content">
+  <!-- PWA install bar -->
+  <div id="install-bar">
+    <span class="install-text"><strong>Add to Home Screen</strong> — Use StreamZone like a native app, works offline</span>
+    <button class="install-btn" id="btn-install" onclick="installPWA()">Install</button>
+    <span class="install-close" onclick="hideInstallBar()">×</span>
+  </div>
+
+  <!-- Hero -->
   <div id="hero">
     <div class="hero-inner">
-      <div class="hero-tag"><span class="live-dot"></span>Live Sports</div>
+      <div class="hero-badge"><span class="live-dot"></span>Live Sports</div>
       <h1 class="hero-h">Watch <em>Live Sports</em><br>Anytime, Anywhere</h1>
-      <p class="hero-p">Stream cricket, football, tennis and more — HD quality via FanCode.</p>
+      <p class="hero-p">Built-in HD player, no ads, no redirects. Cricket, football, tennis and more.</p>
       <div class="hero-stats">
-        <div class="stat"><div class="n r" id="hs-live">0</div><div class="l">Live</div></div>
-        <div class="stat"><div class="n a" id="hs-up">0</div><div class="l">Upcoming</div></div>
-        <div class="stat"><div class="n b" id="hs-all">0</div><div class="l">Total</div></div>
+        <div class="stat"><div class="stat-n r" id="hs-live">0</div><div class="stat-l">Live Now</div></div>
+        <div class="stat"><div class="stat-n a" id="hs-up">0</div><div class="stat-l">Upcoming</div></div>
+        <div class="stat"><div class="stat-n b" id="hs-all">0</div><div class="stat-l">Total</div></div>
       </div>
       <div class="hero-deco">🏆</div>
     </div>
   </div>
 
-  <div class="sec" id="sec-live" style="margin-top:20px">
+  <!-- Starting Soon -->
+  <div id="sec-soon">
     <div class="sec-head">
-      <span class="sec-label r"><span class="live-dot" style="background:var(--red);display:inline-block;width:5px;height:5px;border-radius:50%;margin-right:4px"></span>Live Now</span>
-      <span class="sec-count" id="cnt-live">0</span>
+      <span class="sec-title a">⚡ Starting Soon</span>
+      <div class="sec-line"></div>
+    </div>
+    <div class="soon-scroll" id="soon-chips"></div>
+  </div>
+
+  <!-- Live -->
+  <div class="sec" id="sec-live" style="margin-top:22px">
+    <div class="sec-head">
+      <span class="sec-title r"><span style="background:var(--red);display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:5px;vertical-align:middle;animation:pulse 1.4s ease infinite"></span>Live Now</span>
+      <span class="sec-badge" id="cnt-live">0</span>
       <div class="sec-line"></div>
     </div>
     <div class="grid" id="grid-live"></div>
   </div>
 
+  <!-- Upcoming -->
   <div class="sec" id="sec-up">
     <div class="sec-head">
-      <span class="sec-label a">Upcoming</span>
-      <span class="sec-count" id="cnt-up">0</span>
+      <span class="sec-title a">⏳ Upcoming</span>
+      <span class="sec-badge" id="cnt-up">0</span>
       <div class="sec-line"></div>
     </div>
     <div class="grid" id="grid-up"></div>
   </div>
 </div>
 
+<!-- Footer -->
 <div id="footer">
   <span class="footer-logo">Stream<b>Zone</b></span>
-  <span id="footer-note">Powered by FanCode · Auto-refreshes every 2 min</span>
+  <span id="footer-note" style="font-size:11px;color:var(--fg3)">Powered by FanCode · Auto-refreshes every 2 min</span>
+  <div class="footer-links"><a href="#">Home</a><a href="#" onclick="openSchedule();return false">Schedule</a><a href="#" onclick="openShortcuts();return false">Shortcuts</a></div>
 </div>
 
-<!-- PLAYER MODAL -->
-<div id="modal">
-  <div class="modal-wrap">
-    <div class="m-head">
-      <div class="m-meta">
-        <div class="m-live-tag" id="m-live"><span class="live-dot"></span>Live</div>
-        <div class="m-title" id="m-title">Loading…</div>
-        <div class="m-sub"   id="m-sub"></div>
-      </div>
-      <button class="m-close" id="btn-close">
-        <svg viewBox="0 0 14 14"><line x1="1" y1="1" x2="13" y2="13"/><line x1="13" y1="1" x2="1" y2="13"/></svg>
-      </button>
+<!-- Schedule Modal -->
+<div id="schedule-modal">
+  <div class="sched-wrap">
+    <div class="sched-head">
+      <span class="sched-title">📅 Schedule</span>
+      <button class="sched-close" onclick="closeSchedule()"><svg viewBox="0 0 14 14"><line x1="1" y1="1" x2="13" y2="13"/><line x1="13" y1="1" x2="1" y2="13"/></svg></button>
     </div>
+    <div class="sched-tabs" id="sched-tabs"></div>
+    <div class="sched-body" id="sched-body"></div>
+  </div>
+</div>
 
-    <div class="player-area">
-      <div class="p-loading" id="p-loading">
-        <div class="p-ring"></div>
-        <div class="p-text" id="p-text">Connecting to stream…</div>
-      </div>
-      <div class="p-empty" id="p-empty">
-        <div class="pe-ico">⏰</div>
-        <div class="pe-h" id="pe-h">Stream Not Available</div>
-        <div class="pe-p" id="pe-p">This match hasn't started yet or no stream is available.</div>
-      </div>
-      <!-- Iframe loads a sanitized blob URL — no Telegram/promo injected -->
-      <iframe
-        id="player-frame"
-        allowfullscreen
-        allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
-        referrerpolicy="no-referrer-when-downgrade"
-        scrolling="no"
-      ></iframe>
-    </div>
+<!-- Keyboard Shortcuts Modal -->
+<div id="shortcuts-modal">
+  <div class="shortcuts-wrap">
+    <div class="sc-title">⌨ Keyboard Shortcuts <span class="sc-close" onclick="closeShortcuts()">×</span></div>
+    <div class="sc-row"><span class="sc-desc">Search</span><span class="sc-key"><span class="kbd">S</span></span></div>
+    <div class="sc-row"><span class="sc-desc">Schedule / Calendar</span><span class="sc-key"><span class="kbd">C</span></span></div>
+    <div class="sc-row"><span class="sc-desc">Refresh matches</span><span class="sc-key"><span class="kbd">R</span></span></div>
+    <div class="sc-row"><span class="sc-desc">Close modal / overlay</span><span class="sc-key"><span class="kbd">Esc</span></span></div>
+    <div class="sc-row"><span class="sc-desc">Toggle sidebar</span><span class="sc-key"><span class="kbd">B</span></span></div>
+    <div class="sc-row"><span class="sc-desc">This help</span><span class="sc-key"><span class="kbd">?</span></span></div>
+  </div>
+</div>
 
-    <div class="m-foot">
-      <span class="m-foot-label">Stream URL</span>
-      <div class="m-url-wrap">
-        <span class="m-url" id="m-url-txt" onclick="copyUrl()">—</span>
-      </div>
-      <div class="m-actions">
-        <button class="m-btn" onclick="copyUrl()">Copy</button>
-        <button class="m-btn" onclick="openExt()">Open ↗</button>
-        <button class="m-btn accent" onclick="reloadStream()">↻ Reload</button>
-      </div>
-    </div>
+<!-- Mobile Search -->
+<div id="mob-search-overlay">
+  <div class="mob-search-bar">
+    <span class="mob-si"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg></span>
+    <input id="mob-q-input" type="search" placeholder="Search matches, teams, sports…" autocomplete="off">
+    <button class="mob-search-cancel" onclick="closeMobSearch()">Cancel</button>
+  </div>
+  <div id="mob-search-results">
+    <div class="mob-empty"><div class="mob-empty-ico">🔍</div><div class="mob-empty-h">Search for matches</div><div class="mob-empty-p">Type a team, sport or event name</div></div>
   </div>
 </div>
 
 <div id="toast"></div>
 
 <script>
-/* ═══════════════════════════════════════════════════════════
-   CONFIG
-═══════════════════════════════════════════════════════════ */
-const WORKER   = 'https://fancode.thecricsters.workers.dev/?id=';
-const W_SUFFIX = '&lang=english';
+// ════════════════════════════════
+// CONFIG
+// ════════════════════════════════
 const JSON_URL = 'https://raw.githubusercontent.com/sm-monirulislam/FanCode-Auto-Update-Playlist/main/FanCode_data.json';
-const PROXIES  = [
+const PROXIES = [
   u => `https://api.allorigins.win/get?url=${encodeURIComponent(u)}`,
   u => `https://corsproxy.io/?${encodeURIComponent(u)}`,
   u => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(u)}`
 ];
+function patchUrl(url) {
+  return url ? url.replace(/bd-mc-flive\.fancode\.com/g, 'in-mc-flive.fancode.com') : url;
+}
 
-/* ═══ STATE ═══ */
-let ALL = [], filt = 'all', query = '', curMeta = null;
+// ════════════════════════════════
+// STATE
+// ════════════════════════════════
+let ALL = [], filt = 'all', query = '';
+let currentMatch = null;
+let deferredInstallPrompt = null;
+let countdownTimers = [];
 
-/* ═══ HELPERS ═══ */
 const $ = id => document.getElementById(id);
 const esc = s => String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-const isLive = m => (m.status||'').toUpperCase()==='LIVE';
+const isLive = m => (m.status||'').toUpperCase() === 'LIVE';
+
 const catIcon = c => {
-  c=(c||'').toLowerCase();
+  c = (c||'').toLowerCase();
   if(c.includes('cricket')) return '🏏';
   if(c.includes('football')||c.includes('soccer')) return '⚽';
   if(c.includes('basketball')) return '🏀';
@@ -496,265 +539,537 @@ const catIcon = c => {
   if(c.includes('badminton')) return '🏸';
   if(c.includes('kabaddi')) return '🤼';
   if(c.includes('golf')) return '⛳';
+  if(c.includes('formula')||c.includes('f1')) return '🏎️';
+  if(c.includes('motorsport')||c.includes('racing')) return '🏍️';
   return '🏆';
 };
 
-function toast(msg,dur=2400){
-  const t=$('toast');t.textContent=msg;t.classList.add('show');
-  clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),dur);
+// ════════════════════════════════
+// TOAST
+// ════════════════════════════════
+function toast(msg, dur=2600) {
+  const t = $('toast'); t.textContent = msg; t.classList.add('show');
+  clearTimeout(t._t); t._t = setTimeout(() => t.classList.remove('show'), dur);
 }
 
-/* ═══════════════════════════════════════════════════════════
-   BUILD WRAPPER SRCDOC
-   Creates a wrapper HTML page (served as srcdoc) that:
-   1. Loads the worker URL in a nested <iframe> (stream works)
-   2. Overlays positioned <div>s that COVER the known promo
-      element positions (top-right Telegram badge, top-right
-      download button) — cross-origin safe, stream unaffected.
-   3. Uses pointer-events:none on the video area so clicks
-      go through to the nested iframe (play/pause/fullscreen).
-═══════════════════════════════════════════════════════════ */
-function buildWrapperSrcdoc(workerUrl) {
-  // Escape for srcdoc attribute (double-quotes must be &quot;)
-  const safeUrl = workerUrl.replace(/&/g,'&amp;').replace(/"/g,'&quot;');
-  return `<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  html,body{width:100%;height:100%;background:#000;overflow:hidden}
-  #inner{position:absolute;inset:0;width:100%;height:100%;border:none}
-  /* ── PROMO KILLERS ── */
-  /* Cover top-right corner where Telegram badge + Download btn live */
-  .kill-tr{
-    position:absolute;top:0;right:0;z-index:9999;
-    background:#000;
-    /* Covers roughly the top-right 260×52px area */
-    width:260px;height:52px;
-    pointer-events:all;
-  }
-  /* Extra narrow strip for just the tg badge (sometimes floats) */
-  .kill-tr2{
-    position:absolute;top:52px;right:0;z-index:9999;
-    background:#000;
-    width:160px;height:36px;
-    pointer-events:all;
-  }
-  /* Full top strip blocker (thinner, so video controls still work) */
-  .kill-top{
-    position:absolute;top:0;left:0;right:0;z-index:9998;
-    height:54px;
-    /* Transparent except for right side — let user see title bar if any */
-    background:transparent;
-    pointer-events:none;
-  }
-  .kill-top::after{
-    content:'';
-    position:absolute;top:0;right:0;width:270px;height:54px;
-    background:#000;
-    pointer-events:all;
-  }
-</style>
-</head>
-<body>
-  <iframe id="inner" src="${safeUrl}"
-    allowfullscreen
-    allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
-    referrerpolicy="no-referrer-when-downgrade"
-    scrolling="no"
-  ></iframe>
-  <!-- Overlay divs that cover the promo element positions -->
-  <div class="kill-tr"></div>
-  <div class="kill-tr2"></div>
-  <div class="kill-top"></div>
-</body>
-</html>`;
+// ════════════════════════════════
+// TIME / COUNTDOWN
+// ════════════════════════════════
+function parseMatchTime(timeStr) {
+  if (!timeStr) return null;
+  // Try to parse "14 March 2026 06:00 PM" style
+  try {
+    const d = new Date(timeStr);
+    if (!isNaN(d)) return d;
+  } catch(e) {}
+  return null;
+}
+function formatCountdown(ms) {
+  if (ms <= 0) return 'Starting now';
+  const s = Math.floor(ms / 1000);
+  const m = Math.floor(s / 60) % 60;
+  const h = Math.floor(s / 3600) % 24;
+  const d = Math.floor(s / 86400);
+  if (d > 0) return `${d}d ${h}h`;
+  if (h > 0) return `${h}h ${m}m`;
+  return `${m}m ${Math.floor(s % 60)}s`;
+}
+function formatLocalTime(timeStr) {
+  const d = parseMatchTime(timeStr);
+  if (!d) return timeStr;
+  return d.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'}) + ' ' +
+         d.toLocaleDateString([], {day:'numeric', month:'short'});
+}
+function minsUntil(timeStr) {
+  const d = parseMatchTime(timeStr);
+  if (!d) return Infinity;
+  return (d - Date.now()) / 60000;
 }
 
-/* ═══ CARD ═══ */
-function buildCard(m,i){
-  const live=isLive(m),title=m.match_name||m.title||'',league=m.event_name||'',cat=m.event_category||'',img=m.src||'',t1=m.team_1||'',t2=m.team_2||'',time=m.startTime||'';
-  const hasStream=!!(m.match_id||m.adfree_url),canPlay=hasStream&&live;
-  const payload=encodeURIComponent(JSON.stringify({match_id:m.match_id||null,adfree_url:m.adfree_url||'',live,title,league,cat,img,t1,t2,time}));
-  return `<div class="mcard${live?' live-card':''}" style="animation-delay:${i*30}ms" onclick="openPlayer('${payload}')">
+// Tick all visible countdowns
+function tickCountdowns() {
+  document.querySelectorAll('[data-cd]').forEach(el => {
+    const timeStr = el.dataset.cd;
+    const d = parseMatchTime(timeStr);
+    if (!d) return;
+    const ms = d - Date.now();
+    el.textContent = ms > 0 ? formatCountdown(ms) : 'Live soon';
+  });
+}
+setInterval(tickCountdowns, 1000);
+
+// ════════════════════════════════
+// STARTING SOON SECTION
+// ════════════════════════════════
+function renderSoon() {
+  const soon = ALL.filter(m => {
+    if (isLive(m)) return false;
+    const mins = minsUntil(m.startTime);
+    return mins >= 0 && mins <= 90;
+  }).slice(0, 10);
+  const sec = $('sec-soon');
+  if (!soon.length) { sec.style.display = 'none'; return; }
+  sec.style.display = 'block';
+  $('soon-chips').innerHTML = soon.map(m => {
+    const t = m.match_name || m.title || '';
+    const cat = m.event_category || '';
+    const time = m.startTime || '';
+    const payload = encodeURIComponent(JSON.stringify({ adfree_url: m.adfree_url||'', live: false, title: t, league: m.event_name||'', cat, img: m.src||'', t1: m.team_1||'', t2: m.team_2||'', time }));
+    return `<div class="soon-chip" onclick="playStream('${payload}',event)">
+      <div class="soon-sport">${catIcon(cat)} ${esc(cat)}</div>
+      <div class="soon-title">${esc(t)}</div>
+      <div class="soon-cd" data-cd="${esc(time)}">${formatCountdown(parseMatchTime(time) - Date.now())}</div>
+    </div>`;
+  }).join('');
+}
+
+// ════════════════════════════════
+// FAVORITES
+// ════════════════════════════════
+function closePlayer() { /* player removed */ }
+
+// ════════════════════════════════
+// CARD BUILDER
+// ════════════════════════════════
+function buildCard(m, i) {
+  const live = isLive(m);
+  const title = m.match_name || m.title || '';
+  const league = m.event_name || '';
+  const cat = m.event_category || '';
+  const img = m.src || '';
+  const t1 = m.team_1 || '', t2 = m.team_2 || '';
+  const time = m.startTime || '';
+  const hasStream = !!m.adfree_url;
+  const canPlay = hasStream && live;
+  const soon = !live && minsUntil(time) >= 0 && minsUntil(time) <= 90;
+  const payload = encodeURIComponent(JSON.stringify({
+    adfree_url: m.adfree_url||'', live, title, league, cat, img, t1, t2, time,
+    match_id: m.match_id||null
+  }));
+  const favPayload = encodeURIComponent(JSON.stringify({ adfree_url: m.adfree_url||'', match_name: m.match_name||'', title: m.title||'', match_id: m.match_id||'' }));
+  const btnClass = canPlay ? 'danger' : 'ghost';
+  const btnLabel = canPlay ? '▶ Watch Live' : hasStream ? '▶ Watch' : 'Coming Soon';
+
+  return `<div class="mcard${live?' live-card':''}" style="animation-delay:${Math.min(i,12)*40}ms" onclick="playStream('${payload}',event)">
   <div class="mc-thumb">
-    ${img?`<img src="${esc(img)}" alt="${esc(title)}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`:''}<div class="mc-fallback" style="${img?'display:none':''}">${catIcon(cat)}</div>
-    ${live?`<div class="badge bdg-live"><span class="live-dot" style="background:#fff"></span>Live</div>`:`<div class="badge bdg-up">Upcoming</div>`}
-    ${cat?`<div class="cat-tag">${esc(cat)}</div>`:''}
-    <div class="mc-hover"><div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
-  </div>
+    ${img ? `<img src="${esc(img)}" alt="${esc(title)}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">` : ''}
+    <div class="mc-fallback" style="${img?'display:none':''}">${catIcon(cat)}</div>
+    ${live ? `<div class="mc-badge bdg-live"><span class="live-dot" style="background:#fff;width:5px;height:5px;flex-shrink:0"></span>Live</div>` : `<div class="mc-badge bdg-up">Upcoming</div>`}
+    ${cat ? `<div class="mc-cat">${esc(cat)}</div>` : ''}
+    <div class="mc-thumb-fade"></div>
+    <div class="mc-overlay"><div class="play-ring"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+    </div>
   <div class="mc-body">
-    ${league?`<div class="mc-league">${esc(league)}</div>`:''}
+    ${league ? `<div class="mc-league">${esc(league)}</div>` : ''}
     <div class="mc-title">${esc(title)}</div>
-    ${t1&&t2?`<div class="mc-teams"><span class="mc-team">${esc(t1)}</span><span class="mc-vs">vs</span><span class="mc-team">${esc(t2)}</span></div>`:''}
-    ${time?`<div class="mc-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>${esc(time)}</div>`:''}
+    ${t1 && t2 ? `<div class="mc-teams"><span class="mc-team">${esc(t1)}</span><span class="mc-vs">vs</span><span class="mc-team">${esc(t2)}</span></div>` : ''}
+    ${time ? `<div class="mc-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>${esc(formatLocalTime(time))}</div>` : ''}
     <div class="mc-foot">
-      <button class="w-btn ${hasStream?'primary':'ghost'}" onclick="event.stopPropagation();openPlayer('${payload}')">
-        ${canPlay?'▶ Watch Live':hasStream?'▶ Watch':'Coming Soon'}
-      </button>
+      <button class="w-btn ${btnClass}" onclick="playStream('${payload}',event)">${btnLabel}</button>
+      ${soon ? `<span class="mc-cd" data-cd="${esc(time)}">${formatCountdown(parseMatchTime(time)-Date.now())}</span>` : ''}
     </div>
   </div>
 </div>`;
 }
 
-/* ═══ RENDER ═══ */
-function filtered(){
-  let f=ALL;
-  if(query){const q=query.toLowerCase();f=f.filter(m=>[m.title,m.match_name,m.event_name,m.event_category,m.team_1,m.team_2].join(' ').toLowerCase().includes(q));}
-  if(filt==='live')f=f.filter(isLive);
-  else if(filt==='upcoming')f=f.filter(m=>!isLive(m));
-  else if(!['all','live','upcoming'].includes(filt))f=f.filter(m=>(m.event_category||'').toLowerCase()===filt);
+
+// ════════════════════════════════
+// FILTER & RENDER
+// ════════════════════════════════
+function filtered() {
+  let f = ALL;
+  if (query) {
+    const q = query.toLowerCase();
+    f = f.filter(m => [m.title,m.match_name,m.event_name,m.event_category,m.team_1,m.team_2].join(' ').toLowerCase().includes(q));
+  }
+  if (filt === 'live') f = f.filter(isLive);
+  else if (filt === 'upcoming') f = f.filter(m => !isLive(m));
+  else if (!['all'].includes(filt)) f = f.filter(m => (m.event_category||'').toLowerCase() === filt);
   return f;
 }
-function render(){
-  const f=filtered(),lv=f.filter(isLive),up=f.filter(m=>!isLive(m));
-  $('cnt-live').textContent=lv.length;$('cnt-up').textContent=up.length;
-  $('grid-live').innerHTML=lv.length?lv.map((m,i)=>buildCard(m,i)).join(''):`<div class="empty"><div class="empty-ico">📡</div><div class="empty-h">No Live Matches</div><div class="empty-p">Check back soon.</div></div>`;
-  $('grid-up').innerHTML=up.length?up.map((m,i)=>buildCard(m,i)).join(''):`<div class="empty"><div class="empty-ico">📅</div><div class="empty-h">No Upcoming Matches</div><div class="empty-p">Nothing scheduled right now.</div></div>`;
-  $('sec-live').style.display=filt==='upcoming'?'none':'block';
-  $('sec-up').style.display=filt==='live'?'none':'block';
+
+function render() {
+  const f = filtered(), lv = f.filter(isLive), up = f.filter(m => !isLive(m));
+  $('cnt-live').textContent = lv.length;
+  $('cnt-up').textContent = up.length;
+  $('grid-live').innerHTML = lv.length
+    ? lv.map((m,i) => buildCard(m,i)).join('')
+    : `<div class="empty"><div class="empty-ico">📡</div><div class="empty-h">No Live Matches</div><div class="empty-p">Check back soon.</div></div>`;
+  $('grid-up').innerHTML = up.length
+    ? up.map((m,i) => buildCard(m,i)).join('')
+    : `<div class="empty"><div class="empty-ico">📅</div><div class="empty-h">No Upcoming Matches</div><div class="empty-p">Nothing scheduled right now.</div></div>`;
+  $('sec-live').style.display = filt === 'upcoming' ? 'none' : 'block';
+  $('sec-up').style.display = filt === 'live' ? 'none' : 'block';
+  renderSoon();
 }
 
-/* ═══ SIDEBAR ═══ */
-function setFilt(el,f){filt=f;document.querySelectorAll('.nav-item').forEach(b=>b.classList.remove('on'));el.classList.add('on');render();}
-function buildSidebar(){
-  const lv=ALL.filter(isLive).length,up=ALL.length-lv;
-  $('nb-all').textContent=$('hs-all').textContent=ALL.length;
-  $('nb-live').textContent=$('hs-live').textContent=$('hdr-live').textContent=lv;
-  $('nb-up').textContent=$('hs-up').textContent=up;
-  const cats=[...new Set(ALL.map(m=>m.event_category||'').filter(Boolean))];
-  const ns=$('nav-sports');ns.innerHTML='';
-  cats.forEach(c=>{
-    const cnt=ALL.filter(m=>m.event_category===c).length;
-    const b=document.createElement('button');b.className='nav-item';
-    b.innerHTML=`<span class="nav-ico">${catIcon(c)}</span>${esc(c)}<span class="nav-num">${cnt}</span>`;
-    b.onclick=()=>setFilt(b,c.toLowerCase());ns.appendChild(b);
+function setFilt(el, f) {
+  filt = f;
+  document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('on'));
+  el.classList.add('on');
+  render();
+  if (window.innerWidth <= 840) closeSidebar();
+}
+
+function buildSidebar() {
+  const lv = ALL.filter(isLive).length, up = ALL.length - lv;
+  ['nb-all','hs-all'].forEach(id => $(id) && ($(id).textContent = ALL.length));
+  ['nb-live','hs-live','hdr-live'].forEach(id => $(id) && ($(id).textContent = lv));
+  ['nb-up','hs-up'].forEach(id => $(id) && ($(id).textContent = up));
+  const cats = [...new Set(ALL.map(m => m.event_category||'').filter(Boolean))];
+  const ns = $('nav-sports'); ns.innerHTML = '';
+  cats.forEach(c => {
+    const cnt = ALL.filter(m => m.event_category === c).length;
+    const b = document.createElement('button');
+    b.className = 'nav-item';
+    b.innerHTML = `<span class="nav-ico">${catIcon(c)}</span>${esc(c)}<span class="nav-num">${cnt}</span>`;
+    b.onclick = () => setFilt(b, c.toLowerCase());
+    ns.appendChild(b);
   });
 }
 
-/* ═══ SEARCH ═══ */
-const qi=$('q-input'),qc=$('q-clear');
-qi.addEventListener('input',()=>{query=qi.value.trim();qc.classList.toggle('on',!!query);render();});
-qc.onclick=()=>{qi.value='';query='';qc.classList.remove('on');render();};
+// ════════════════════════════════
+// HLS PLAYER
+// ════════════════════════════════
+function playStream(encoded, e) {
+  if (e) e.stopPropagation();
+  const m = JSON.parse(decodeURIComponent(encoded));
+  currentMatch = m;
 
-/* ═══ PLAYER ═══ */
-function _loading(msg='Connecting to stream…'){
-  $('p-loading').style.display='flex';$('p-text').textContent=msg;
-  $('p-empty').classList.remove('show');
-  const f=$('player-frame');f.classList.remove('active','ready');
-}
-function _empty(h='Stream Not Available',p="This match hasn't started yet or no stream is available."){
-  $('p-loading').style.display='none';
-  $('pe-h').textContent=h;$('pe-p').textContent=p;
-  $('p-empty').classList.add('show');
-  const f=$('player-frame');f.removeAttribute('srcdoc');f.src='about:blank';f.classList.remove('active','ready');
-}
-function _setFrame(workerUrl){
-  _loading('Connecting to stream…');
-  const f=$('player-frame');
-  f.classList.remove('ready');
-  f.classList.add('active');
-  // Clear first
-  f.removeAttribute('srcdoc');
-  f.src='about:blank';
-  setTimeout(()=>{
-    // Use srcdoc wrapper: loads worker in nested iframe,
-    // overlays black divs to cover promo element positions
-    f.srcdoc = buildWrapperSrcdoc(workerUrl);
-  }, 80);
+  if (!m.live && !m.adfree_url) {
+    toast('⏰ Match not started yet');
+    return;
+  }
+
+  const url = patchUrl(m.adfree_url || '');
+  if (!url) { toast('❌ No stream URL available'); return; }
+
+  window.open(url, '_blank', 'noopener');
 }
 
-$('player-frame').addEventListener('load',()=>{
-  if($('player-frame').classList.contains('active')){
-    $('p-loading').style.display='none';
-    $('player-frame').classList.add('ready');
+
+
+
+
+
+
+
+
+
+
+// ════════════════════════════════
+// PICTURE IN PICTURE
+// ════════════════════════════════
+
+
+// ════════════════════════════════
+// MINI PLAYER
+// ════════════════════════════════
+
+
+
+
+
+
+
+
+// ════════════════════════════════
+// SHARE
+// ════════════════════════════════
+function shareMatch() {
+  if (!currentMatch) return;
+  const text = `Watch "${currentMatch.title}" live on StreamZone!`;
+  if (navigator.share) {
+    navigator.share({ title: currentMatch.title, text, url: window.location.href })
+      .catch(() => {});
+  } else {
+    navigator.clipboard?.writeText(text + ' ' + window.location.href)
+      .then(() => toast('🔗 Link copied to clipboard'));
+  }
+}
+
+// ════════════════════════════════
+// SCHEDULE
+// ════════════════════════════════
+function openSchedule() {
+  $('schedule-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  renderSchedule();
+}
+function closeSchedule() {
+  $('schedule-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function renderSchedule() {
+  // Build tabs from sports categories + "All"
+  const cats = ['All', ...new Set(ALL.map(m=>m.event_category||'').filter(Boolean))];
+  let activeCat = $('sched-tabs').dataset.active || 'All';
+
+  $('sched-tabs').innerHTML = cats.map(c =>
+    `<div class="sched-tab${c===activeCat?' on':''}" onclick="schedTab('${esc(c)}')">${c==='All'?'📋 All':catIcon(c)+' '+esc(c)}</div>`
+  ).join('');
+
+  const matches = activeCat === 'All' ? ALL : ALL.filter(m => m.event_category === activeCat);
+  const live = matches.filter(isLive);
+  const upcoming = matches.filter(m => !isLive(m));
+
+  let html = '';
+  if (live.length) {
+    html += `<div class="sched-group"><div class="sched-group-label">🔴 Live Now (${live.length})</div>`;
+    html += live.map(m => schedRow(m, true)).join('');
+    html += '</div>';
+  }
+  if (upcoming.length) {
+    html += `<div class="sched-group"><div class="sched-group-label">⏳ Upcoming (${upcoming.length})</div>`;
+    html += upcoming.map(m => schedRow(m, false)).join('');
+    html += '</div>';
+  }
+  if (!html) html = `<div class="mob-empty"><div class="mob-empty-ico">📅</div><div class="mob-empty-h">No matches</div></div>`;
+  $('sched-body').innerHTML = html;
+}
+
+function schedTab(cat) {
+  $('sched-tabs').dataset.active = cat;
+  renderSchedule();
+}
+
+function schedRow(m, live) {
+  const t = m.match_name || m.title || '';
+  const time = m.startTime || '';
+  const localTime = formatLocalTime(time);
+  const mins = minsUntil(time);
+  const soon = !live && mins >= 0 && mins <= 90;
+  const payload = encodeURIComponent(JSON.stringify({
+    adfree_url: m.adfree_url||'', live, title: t,
+    league: m.event_name||'', cat: m.event_category||'',
+    img: m.src||'', t1: m.team_1||'', t2: m.team_2||'', time
+  }));
+  return `<div class="sched-row${live?' live-row':''}" onclick="closeSchedule();playStream('${payload}',event)">
+    <span class="sched-sport">${catIcon(m.event_category||'')}</span>
+    <div class="sched-info">
+      <div class="sched-name">${esc(t)}</div>
+      <div class="sched-league">${esc(m.event_name||m.event_category||'')}</div>
+    </div>
+    ${live ? `<span class="sched-live-dot"></span>` : ''}
+    ${soon ? `<span class="sched-cd" data-cd="${esc(time)}">${formatCountdown(parseMatchTime(time)-Date.now())}</span>` : ''}
+    <div class="sched-time">${esc(localTime)}</div>
+  </div>`;
+}
+
+// ════════════════════════════════
+// KEYBOARD SHORTCUTS
+// ════════════════════════════════
+function openShortcuts() { $('shortcuts-modal').classList.add('open'); }
+function closeShortcuts() { $('shortcuts-modal').classList.remove('open'); }
+
+document.addEventListener('keydown', e => {
+  const tag = document.activeElement?.tagName;
+  if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+  switch(e.key) {
+    case 'Escape':
+      closeMobSearch(); closeSchedule(); closeShortcuts();
+      $('schedule-modal').classList.remove('open');
+      break;
+    case 's': case 'S':
+      e.preventDefault();
+      if (window.innerWidth <= 600) openMobSearch();
+      else { $('q-input').focus(); $('q-input').select(); }
+      break;
+    case 'r': case 'R': loadData(); toast('↻ Refreshing…'); break;
+    case 'c': case 'C': openSchedule(); break;
+    case 'b': case 'B': toggleSidebar(); break;
+    case '?': openShortcuts(); break;
   }
 });
 
-function openPlayer(encoded){
-  const m=JSON.parse(decodeURIComponent(encoded));
-  curMeta=m;
+// ════════════════════════════════
+// PWA
+// ════════════════════════════════
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  deferredInstallPrompt = e;
+  $('install-bar').classList.add('show');
+});
+function installPWA() {
+  if (!deferredInstallPrompt) return;
+  deferredInstallPrompt.prompt();
+  deferredInstallPrompt.userChoice.then(r => {
+    if (r.outcome === 'accepted') { toast('✅ StreamZone installed!'); hideInstallBar(); }
+    deferredInstallPrompt = null;
+  });
+}
+function hideInstallBar() {
+  $('install-bar').classList.remove('show');
+  localStorage.setItem('sz_hide_install','1');
+}
+window.addEventListener('appinstalled', () => { hideInstallBar(); toast('✅ App installed!'); });
 
-  $('m-live').classList.toggle('on',m.live);
-  $('m-title').textContent=m.title||'Match';
-  $('m-sub').textContent=[m.league,m.cat].filter(Boolean).join(' · ');
-  $('modal').classList.add('open');
-  document.body.style.overflow='hidden';
+// ════════════════════════════════
+// MOBILE SEARCH
+// ════════════════════════════════
+function openMobSearch() {
+  $('mob-search-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  $('mob-q-input').value = '';
+  renderMobSearch('');
+  setTimeout(() => $('mob-q-input').focus(), 80);
+}
+function closeMobSearch() {
+  $('mob-search-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+  query = ''; $('mob-q-input').value = '';
+  render();
+}
+function renderMobSearch(q) {
+  const el = $('mob-search-results');
+  if (!q.trim()) {
+    el.innerHTML = `<div class="mob-empty"><div class="mob-empty-ico">🔍</div><div class="mob-empty-h">Search for matches</div><div class="mob-empty-p">Type a team, sport or event name</div></div>`;
+    return;
+  }
+  const ql = q.toLowerCase();
+  const ms = ALL.filter(m => [m.title,m.match_name,m.event_name,m.event_category,m.team_1,m.team_2].join(' ').toLowerCase().includes(ql));
+  if (!ms.length) {
+    el.innerHTML = `<div class="mob-empty"><div class="mob-empty-ico">😔</div><div class="mob-empty-h">No results</div><div class="mob-empty-p">Try a different search term</div></div>`;
+    return;
+  }
+  const lv = ms.filter(isLive), up = ms.filter(m => !isLive(m));
+  let out = '';
+  if (lv.length) out += `<div class="sec-head" style="margin-bottom:10px"><span class="sec-title r">Live</span><span class="sec-badge">${lv.length}</span><div class="sec-line"></div></div><div class="grid" style="margin-bottom:18px">${lv.map((m,i)=>buildCard(m,i)).join('')}</div>`;
+  if (up.length) out += `<div class="sec-head" style="margin-bottom:10px"><span class="sec-title a">Upcoming</span><span class="sec-badge">${up.length}</span><div class="sec-line"></div></div><div class="grid">${up.map((m,i)=>buildCard(m,i)).join('')}</div>`;
+  el.innerHTML = out;
+}
+// mob-q-input listeners moved to initDOMListeners()
 
-  const workerUrl=m.match_id?WORKER+m.match_id+W_SUFFIX:'';
-  const directUrl=m.adfree_url||'';
-  $('m-url-txt').textContent=directUrl||workerUrl||'—';
+// ════════════════════════════════
+// SIDEBAR
+// ════════════════════════════════
+function toggleSidebar() {
+  $('sidebar').classList.toggle('open');
+  $('sidebar-overlay').classList.toggle('on');
+}
+function closeSidebar() {
+  $('sidebar').classList.remove('open');
+  $('sidebar-overlay').classList.remove('on');
+}
 
-  if(workerUrl){
-    _setFrame(workerUrl);
-  } else if(directUrl){
-    _empty('Open Stream Externally','Copy the URL below or click Open ↗ to watch in your media player or VLC.');
-    $('m-url-txt').textContent=directUrl;
-  } else {
-    _empty();
+// ════════════════════════════════
+// DESKTOP SEARCH
+// ════════════════════════════════
+// ── DOM-READY INIT ────────────────────────────
+function initDOMListeners() {
+  const qi = $('q-input'), qc = $('q-clear');
+  if (qi) {
+    qi.addEventListener('input', () => { query = qi.value.trim(); qc && qc.classList.toggle('on', !!query); render(); });
+  }
+  if (qc) {
+    qc.onclick = () => { if(qi) qi.value=''; query=''; qc.classList.remove('on'); render(); };
+  }
+  const sm = $('schedule-modal');
+  if (sm) sm.addEventListener('click', e => { if(e.target===sm) closeSchedule(); });
+  const sc = $('shortcuts-modal');
+  if (sc) sc.addEventListener('click', e => { if(e.target===sc) closeShortcuts(); });
+  const mq = $('mob-q-input');
+  if (mq) {
+    mq.addEventListener('input', function() { renderMobSearch(this.value.trim()); });
+    mq.addEventListener('keydown', e => { if(e.key==='Escape') closeMobSearch(); });
   }
 }
 
-function closePlayer(){
-  $('modal').classList.remove('open');
-  document.body.style.overflow='';
-  const f=$('player-frame');
-  f.removeAttribute('srcdoc');f.src='about:blank';
-  f.classList.remove('active','ready');
-  $('p-empty').classList.remove('show');
-  $('p-loading').style.display='none';
-  $('m-url-txt').textContent='—';
-  curMeta=null;
-}
-function reloadStream(){
-  if(!curMeta)return;
-  const wu=curMeta.match_id?WORKER+curMeta.match_id+W_SUFFIX:'';
-  if(wu){_setFrame(wu);toast('Stream reloaded');}
-  else toast('Nothing to reload.');
-}
-function openExt(){
-  const url=curMeta?.adfree_url||(curMeta?.match_id?WORKER+curMeta.match_id+W_SUFFIX:'');
-  if(url)window.open(url,'_blank','noopener');else toast('No stream URL available');
-}
-function copyUrl(){
-  const t=$('m-url-txt').textContent;
-  if(t&&t!=='—')navigator.clipboard.writeText(t).then(()=>toast('URL copied'));
+// ════════════════════════════════
+// DATA FETCHING
+// ════════════════════════════════
+// ── FETCH HELPERS ──────────────────────────────
+async function fetchDirect(url) {
+  const ctrl = new AbortController();
+  const tid = setTimeout(() => ctrl.abort(), 8000);
+  try {
+    const r = await fetch(url, { cache: 'no-store', signal: ctrl.signal });
+    clearTimeout(tid);
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    return await r.json();
+  } catch(e) { clearTimeout(tid); throw e; }
 }
 
-$('btn-close').onclick=closePlayer;
-$('modal').addEventListener('click',e=>{if(e.target===$('modal'))closePlayer();});
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closePlayer();});
-
-/* ═══ FETCH DATA ═══ */
-async function tryFetch(url){
-  const r=await fetch(url,{cache:'no-store'});
-  if(!r.ok)throw new Error('HTTP '+r.status);
-  return r.json();
+function extractData(raw) {
+  if (!raw) return null;
+  // allorigins wraps in {contents: "..."}
+  if (raw.contents) {
+    try {
+      raw = typeof raw.contents === 'string' ? JSON.parse(raw.contents) : raw.contents;
+    } catch(e) { return null; }
+  }
+  if (raw.matches || raw.events || Array.isArray(raw)) return raw;
+  return null;
 }
-async function loadData(){
-  const btn=$('btn-ref');btn.classList.add('spinning');btn.disabled=true;
-  let data=null;
-  try{data=await tryFetch(JSON_URL);}catch(_){}
-  if(!data){
-    for(const px of PROXIES){
-      try{
-        const r=await tryFetch(px(JSON_URL));
-        data=r?.contents?(typeof r.contents==='string'?JSON.parse(r.contents):r.contents):r;
-        if(data&&(data.matches||Array.isArray(data)))break;
-      }catch(_){data=null;}
+
+async function loadData() {
+  const btn = $('btn-ref');
+  if (btn) { btn.classList.add('spinning'); btn.disabled = true; }
+
+  let data = null;
+
+  // 1. Try direct fetch
+  try {
+    const raw = await fetchDirect(JSON_URL);
+    data = extractData(raw) || raw;
+  } catch(e) { data = null; }
+
+  // 2. Try proxies one by one
+  if (!data || (!data.matches && !data.events && !Array.isArray(data))) {
+    data = null;
+    for (const px of PROXIES) {
+      try {
+        const raw = await fetchDirect(px(JSON_URL));
+        const extracted = extractData(raw);
+        if (extracted) { data = extracted; break; }
+      } catch(e) { /* try next */ }
     }
   }
-  btn.classList.remove('spinning');btn.disabled=false;
-  if(!data){$('pg-load').style.display='none';$('pg-err').style.display='flex';return;}
-  ALL=data.matches||data.events||(Array.isArray(data)?data:[]);
-  const lu=data['last update time']||data.last_updated||'';
-  $('footer-note').textContent=`Powered by FanCode Created by UltraWebs(HM)${lu?' · Updated '+lu:''} · Auto-refreshes every 2 min`;
-  buildSidebar();render();
-  $('pg-load').style.display='none';$('pg-err').style.display='none';$('hero').style.display='block';
+
+  if (btn) { btn.classList.remove('spinning'); btn.disabled = false; }
+
+  if (!data) {
+    $('pg-load').style.display = 'none';
+    $('pg-err').style.display = 'flex';
+    return;
+  }
+
+  ALL = data.matches || data.events || (Array.isArray(data) ? data : []);
+
+  if (!ALL.length) {
+    $('pg-load').style.display = 'none';
+    $('pg-err').style.display = 'flex';
+    return;
+  }
+
+  const lu = data['last update time'] || data.last_updated || '';
+  const fn = $('footer-note');
+  if (fn) fn.textContent = `Powered by FanCode · Created by UltraWebs (HM)${lu?' · Updated '+lu:''} · Auto-refreshes every 2 min`;
+
+  buildSidebar();
+  render();
+
+  $('pg-load').style.display = 'none';
+  $('pg-err').style.display = 'none';
+  $('hero').style.display = 'block';
+
+  if (!localStorage.getItem('sz_hide_install') && deferredInstallPrompt) {
+    $('install-bar').classList.add('show');
+  }
 }
-setInterval(loadData,120000);
-loadData();
+
+// Start after DOM is ready
+function onReady() {
+  initDOMListeners();
+  loadData();
+  setInterval(loadData, 120000);
+}
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', onReady);
+} else {
+  onReady();
+}
 </script>
 </body>
 </html>
