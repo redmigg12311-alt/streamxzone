@@ -5,97 +5,162 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>StreamZone Player</title>
 <meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:100%;height:100%;background:#000;overflow:hidden;font-family:'Outfit',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 
-/* Top bar */
+/* ── TOP BAR ── */
 #topbar{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  height:48px;
-  display:flex;align-items:center;gap:10px;
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:52px;display:flex;align-items:center;gap:10px;
   padding:0 16px;
-  background:linear-gradient(rgba(0,0,0,.9) 0%,transparent 100%);
-  pointer-events:none;
-  transition:opacity .3s;
+  background:linear-gradient(rgba(0,0,0,.88) 0%,transparent 100%);
+  transition:opacity .4s ease;
 }
-#topbar.hide{opacity:0}
-.logo-sm{display:flex;align-items:center;gap:7px;pointer-events:all}
-.logo-sm-mark{width:26px;height:26px;border-radius:6px;background:#ff3355;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.logo-sm-mark svg{width:10px;height:10px;fill:#fff}
-.logo-sm-name{font-size:14px;font-weight:800;color:#fff;letter-spacing:-.04em}
-.logo-sm-name b{color:#ff3355}
-#match-title{
-  flex:1;font-size:13px;font-weight:600;color:rgba(255,255,255,.8);
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-  letter-spacing:-.01em;pointer-events:none;
-}
-.live-badge{
-  display:none;align-items:center;gap:5px;
-  background:#ff3355;color:#fff;
-  font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
-  padding:3px 9px;border-radius:4px;flex-shrink:0;pointer-events:none;
-}
-.live-badge.on{display:flex}
-.live-badge-dot{width:5px;height:5px;border-radius:50%;background:#fff;animation:pulse 1.4s ease infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.7)}}
+#topbar.hide{opacity:0;pointer-events:none}
 .back-btn{
-  pointer-events:all;
-  width:32px;height:32px;border-radius:8px;
+  width:34px;height:34px;border-radius:9px;
   background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);
-  color:#fff;display:flex;align-items:center;justify-content:center;
+  display:flex;align-items:center;justify-content:center;
   cursor:pointer;text-decoration:none;flex-shrink:0;transition:all .15s;
 }
 .back-btn:hover{background:rgba(255,255,255,.2)}
-.back-btn svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.back-btn svg{width:15px;height:15px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.logo-sm{display:flex;align-items:center;gap:7px;text-decoration:none;flex-shrink:0}
+.logo-sm-mark{width:28px;height:28px;border-radius:7px;background:linear-gradient(135deg,#ff3355,#cc1133);display:flex;align-items:center;justify-content:center}
+.logo-sm-mark svg{width:11px;height:11px;fill:#fff}
+.logo-sm-name{font-size:15px;font-weight:800;color:#fff;letter-spacing:-.04em}
+.logo-sm-name b{color:#ff3355}
+#match-title{flex:1;font-size:13px;font-weight:600;color:rgba(255,255,255,.75);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:-.01em}
+.live-badge{display:none;align-items:center;gap:5px;background:#ff3355;color:#fff;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:5px;flex-shrink:0}
+.live-badge.on{display:flex}
+.live-dot-sm{width:5px;height:5px;border-radius:50%;background:#fff;animation:pulse 1.4s ease infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.7)}}
 
-/* Video */
+/* ── VIDEO ── */
 #video-wrap{width:100%;height:100vh;display:flex;align-items:center;justify-content:center;background:#000}
-#player{width:100%;height:100%;object-fit:contain;display:block;transition:opacity .3s}
+#player{width:100%;height:100%;object-fit:contain;display:block;transition:opacity .4s}
 #player.hidden{opacity:0}
 
-/* Loader */
+/* ── LOADER ── */
 #loader{
   position:fixed;inset:0;z-index:50;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;
   background:#000;
 }
-#loader-ring{
-  width:52px;height:52px;
-  border:3px solid rgba(255,255,255,.08);
+.loader-ring{
+  width:54px;height:54px;
+  border:3px solid rgba(255,255,255,.07);
   border-top-color:#ff3355;
   border-radius:50%;
-  animation:spin .9s linear infinite;
+  animation:spin .85s linear infinite;
 }
 @keyframes spin{to{transform:rotate(360deg)}}
-#loader-text{color:rgba(255,255,255,.3);font-size:13px;font-weight:400;letter-spacing:.02em}
-#loader-title{color:rgba(255,255,255,.6);font-size:14px;font-weight:600;letter-spacing:-.01em;text-align:center;max-width:280px;line-height:1.4}
+#loader-title{font-size:15px;font-weight:600;color:rgba(255,255,255,.55);letter-spacing:-.01em;text-align:center;max-width:300px;line-height:1.4;padding:0 24px}
+#loader-sub{font-size:12px;color:rgba(255,255,255,.25);letter-spacing:.02em}
 
-/* Error */
+/* ── DISCLAIMER BANNER ── */
+#disclaimer{
+  position:fixed;bottom:0;left:0;right:0;z-index:300;
+  background:linear-gradient(0deg,rgba(0,0,0,.97) 0%,rgba(10,10,20,.95) 100%);
+  border-top:1px solid rgba(255,255,255,.07);
+  padding:20px 20px 24px;
+  display:flex;flex-direction:column;align-items:center;gap:16px;
+  transform:translateY(0);
+  transition:transform .4s cubic-bezier(.4,0,.2,1);
+}
+#disclaimer.hidden{transform:translateY(100%);pointer-events:none}
+.disc-top{display:flex;align-items:flex-start;gap:12px;max-width:560px;width:100%}
+.disc-icon{font-size:28px;flex-shrink:0;line-height:1;margin-top:2px}
+.disc-text h3{font-size:14px;font-weight:700;color:#fff;letter-spacing:-.02em;margin-bottom:5px}
+.disc-text p{font-size:12px;color:rgba(255,255,255,.45);line-height:1.65;max-width:440px}
+.disc-text p strong{color:rgba(255,255,255,.7);font-weight:600}
+.disc-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;width:100%;max-width:560px}
+
+/* Direct play button — big, prominent */
+#btn-direct{
+  flex:1;min-width:200px;max-width:320px;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  background:linear-gradient(135deg,#ff3355,#cc1133);
+  color:#fff;font-size:15px;font-weight:700;
+  padding:14px 24px;border-radius:12px;border:none;
+  cursor:pointer;font-family:inherit;letter-spacing:-.02em;
+  box-shadow:0 6px 28px rgba(255,51,85,.4);
+  transition:all .2s cubic-bezier(.34,1.4,.64,1);
+  position:relative;overflow:hidden;
+}
+#btn-direct::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.12),transparent);
+  pointer-events:none;
+}
+#btn-direct:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 10px 36px rgba(255,51,85,.5)}
+#btn-direct:active{transform:scale(.97)}
+#btn-direct svg{width:18px;height:18px;fill:#fff;flex-shrink:0}
+
+.btn-dismiss{
+  display:flex;align-items:center;justify-content:center;gap:7px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  color:rgba(255,255,255,.55);font-size:13px;font-weight:500;
+  padding:14px 20px;border-radius:12px;border:none;
+  cursor:pointer;font-family:inherit;transition:all .18s;white-space:nowrap;
+}
+.btn-dismiss:hover{background:rgba(255,255,255,.1);color:rgba(255,255,255,.8)}
+
+/* ── ERROR ── */
 #error{
   position:fixed;inset:0;z-index:60;
   display:none;flex-direction:column;align-items:center;justify-content:center;gap:14px;
   background:#000;text-align:center;padding:24px;
 }
-#error-icon{font-size:52px;line-height:1}
-#error-title{font-size:20px;font-weight:700;color:#fff;letter-spacing:-.03em}
-#error-msg{font-size:13px;color:rgba(255,255,255,.4);line-height:1.7;max-width:290px}
+.err-icon{font-size:54px;line-height:1}
+.err-title{font-size:22px;font-weight:800;color:#fff;letter-spacing:-.04em}
+.err-msg{font-size:13px;color:rgba(255,255,255,.4);line-height:1.75;max-width:300px}
+
+/* Highlighted disclaimer inside error */
+.err-tip{
+  background:rgba(255,51,85,.08);border:1px solid rgba(255,51,85,.2);
+  border-radius:12px;padding:14px 18px;max-width:360px;
+  display:flex;align-items:flex-start;gap:11px;text-align:left;
+}
+.err-tip-icon{font-size:20px;flex-shrink:0;line-height:1.2}
+.err-tip-text{font-size:12px;color:rgba(255,255,255,.5);line-height:1.7}
+.err-tip-text strong{color:#ff7799;font-weight:700;display:block;margin-bottom:3px;font-size:13px}
+
+.err-btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:4px}
 .err-btn{
-  margin-top:6px;border:none;cursor:pointer;font-family:inherit;
-  font-size:13px;font-weight:600;padding:11px 22px;border-radius:10px;
+  border:none;cursor:pointer;font-family:inherit;
+  font-size:13px;font-weight:600;padding:12px 22px;border-radius:10px;
   transition:all .18s;display:inline-flex;align-items:center;gap:7px;
 }
 .err-btn.primary{background:#ff3355;color:#fff;box-shadow:0 4px 20px rgba(255,51,85,.3)}
 .err-btn.primary:hover{background:#cc1133;transform:translateY(-1px)}
-.err-btn.ghost{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.7)}
+.err-btn.blue{background:rgba(77,138,255,.15);border:1px solid rgba(77,138,255,.3);color:#4d8aff}
+.err-btn.blue:hover{background:rgba(77,138,255,.25)}
+.err-btn.ghost{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.6)}
 .err-btn.ghost:hover{background:rgba(255,255,255,.1)}
+
+/* ── BOTTOM URL BAR (shows when playing) ── */
+#urlbar{
+  position:fixed;bottom:0;left:0;right:0;z-index:150;
+  padding:8px 14px;
+  background:linear-gradient(0deg,rgba(0,0,0,.85),transparent);
+  display:none;align-items:center;gap:8px;
+  transition:opacity .3s;
+}
+#urlbar.show{display:flex}
+#urlbar.hide{opacity:0;pointer-events:none}
+#urlbar-text{font-size:10px;color:rgba(255,255,255,.25);font-family:monospace;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.urlbar-btn{flex-shrink:0;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.5);font-size:11px;font-weight:600;padding:5px 11px;border-radius:6px;cursor:pointer;font-family:inherit;transition:all .15s;white-space:nowrap}
+.urlbar-btn:hover{background:rgba(255,255,255,.14);color:#fff}
 </style>
 </head>
 <body>
 
 <!-- Top bar -->
 <div id="topbar">
-  <a class="back-btn" href="/" title="Back to StreamZone">
+  <a class="back-btn" href="/" title="Back">
     <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
   </a>
   <a class="logo-sm" href="/">
@@ -104,83 +169,140 @@ html,body{width:100%;height:100%;background:#000;overflow:hidden;font-family:'Ou
   </a>
   <div id="match-title">Loading…</div>
   <div class="live-badge" id="live-badge">
-    <span class="live-badge-dot"></span>LIVE
+    <span class="live-dot-sm"></span>LIVE
   </div>
 </div>
 
-<!-- Video player -->
+<!-- Video -->
 <div id="video-wrap">
   <video id="player" controls autoplay playsinline class="hidden"></video>
 </div>
 
 <!-- Loader -->
 <div id="loader">
-  <div id="loader-ring"></div>
-  <div id="loader-title" style="display:none"></div>
-  <div id="loader-text">Connecting to stream…</div>
+  <div class="loader-ring"></div>
+  <div id="loader-title"></div>
+  <div id="loader-sub">Connecting to stream…</div>
 </div>
 
-<!-- Error -->
+<!-- Disclaimer banner (always shows at bottom) -->
+<div id="disclaimer">
+  <div class="disc-top">
+    <div class="disc-icon">💡</div>
+    <div class="disc-text">
+      <h3>Video not playing? Use Direct Play</h3>
+      <p>Some streams require special access. If the player above shows an error or stays loading, tap <strong>▶ Direct Play</strong> below — it opens the stream directly in your browser's native player or your preferred app.</p>
+    </div>
+  </div>
+  <div class="disc-actions">
+    <button id="btn-direct" onclick="directPlay()">
+      <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+      Direct Play
+    </button>
+    <button class="btn-dismiss" onclick="dismissDisclaimer()">
+      Got it, keep watching
+    </button>
+  </div>
+</div>
+
+<!-- URL bar (shows when playing) -->
+<div id="urlbar">
+  <span id="urlbar-text">—</span>
+  <button class="urlbar-btn" onclick="copyUrl()">⎘ Copy URL</button>
+  <button class="urlbar-btn" onclick="directPlay()">▶ Direct</button>
+</div>
+
+<!-- Error screen -->
 <div id="error">
-  <div id="error-icon">📡</div>
-  <div id="error-title">Stream Unavailable</div>
-  <div id="error-msg">The stream could not be loaded. It may have expired or requires different access.</div>
-  <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px">
-    <button class="err-btn primary" onclick="reloadPlayer()">↻ Try Again</button>
-    <button class="err-btn ghost" onclick="copyUrl()">⎘ Copy URL</button>
+  <div class="err-icon">📡</div>
+  <div class="err-title">Stream Unavailable</div>
+  <div class="err-msg">The built-in player could not load this stream.</div>
+
+  <!-- Prominent tip -->
+  <div class="err-tip">
+    <div class="err-tip-icon">🚀</div>
+    <div class="err-tip-text">
+      <strong>Try Direct Play — it works!</strong>
+      Click the button below to open the stream directly. This bypasses the built-in player and opens it natively in your browser or a video app — no extra apps needed.
+    </div>
+  </div>
+
+  <div class="err-btns">
+    <button class="err-btn primary" onclick="directPlay()">
+      ▶ Direct Play
+    </button>
+    <button class="err-btn blue" onclick="reloadPlayer()">
+      ↻ Try Again
+    </button>
+    <button class="err-btn ghost" onclick="copyUrl()">
+      ⎘ Copy URL
+    </button>
   </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/hls.js@1.4.12/dist/hls.min.js"></script>
 <script>
-// Read params from URL
-const params = new URLSearchParams(location.search);
+const params  = new URLSearchParams(location.search);
 const streamUrl = params.get('url') || '';
-const title = params.get('title') || 'StreamZone Player';
-const isLive = params.get('live') === '1';
+const title   = params.get('title') || 'StreamZone Player';
+const isLive  = params.get('live') === '1';
 
-// Set page title + UI
+// Set UI
 document.title = title + ' — StreamZone';
 document.getElementById('match-title').textContent = title;
 document.getElementById('loader-title').textContent = title;
-document.getElementById('loader-title').style.display = 'block';
 if (isLive) document.getElementById('live-badge').classList.add('on');
 
 let hlsInst = null;
-const video = document.getElementById('player');
-const loader = document.getElementById('loader');
-const errEl = document.getElementById('error');
+const video   = document.getElementById('player');
+const loader  = document.getElementById('loader');
+const errEl   = document.getElementById('error');
+const urlbar  = document.getElementById('urlbar');
+const disc    = document.getElementById('disclaimer');
 
+// Set URL bar text
+document.getElementById('urlbar-text').textContent = streamUrl || '—';
+
+/* ── STATES ── */
 function showLoader() {
-  loader.style.display = 'flex';
-  errEl.style.display = 'none';
+  loader.style.display  = 'flex';
+  errEl.style.display   = 'none';
+  urlbar.classList.remove('show');
   video.classList.add('hidden');
 }
+
 function showPlayer() {
-  loader.style.display = 'none';
-  errEl.style.display = 'none';
+  loader.style.display  = 'none';
+  errEl.style.display   = 'none';
   video.classList.remove('hidden');
+  urlbar.classList.add('show');
   video.play().catch(() => {});
 }
+
 function showError() {
-  loader.style.display = 'none';
+  loader.style.display  = 'none';
   video.classList.add('hidden');
-  errEl.style.display = 'flex';
+  urlbar.classList.remove('show');
+  errEl.style.display   = 'flex';
+  // Make sure disclaimer is visible on error
+  disc.classList.remove('hidden');
 }
 
+/* ── STREAM LOAD ── */
 function startStream(url) {
   if (!url) { showError(); return; }
   if (hlsInst) { hlsInst.destroy(); hlsInst = null; }
   video.src = '';
   showLoader();
 
-  if (Hls.isSupported()) {
+  if (typeof Hls !== 'undefined' && Hls.isSupported()) {
     hlsInst = new Hls({ enableWorker: false, lowLatencyMode: true });
     hlsInst.loadSource(url);
     hlsInst.attachMedia(video);
     hlsInst.on(Hls.Events.MANIFEST_PARSED, showPlayer);
     hlsInst.on(Hls.Events.ERROR, (e, d) => { if (d.fatal) showError(); });
   } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    // Safari / iOS native HLS
     video.src = url;
     video.addEventListener('loadedmetadata', showPlayer, { once: true });
     video.addEventListener('error', showError, { once: true });
@@ -191,30 +313,66 @@ function startStream(url) {
 
 function reloadPlayer() { startStream(streamUrl); }
 
-function copyUrl() {
-  navigator.clipboard?.writeText(streamUrl)
-    .then(() => { document.querySelector('.err-btn.ghost').textContent = '✓ Copied!'; })
-    .catch(() => {});
+/* ── DIRECT PLAY ── */
+function directPlay() {
+  if (!streamUrl) return;
+  // Open the raw m3u8 URL directly — browser handles it natively
+  window.open(streamUrl, '_blank', 'noopener');
 }
 
-// Auto-hide top bar after 3s of no mouse movement
+/* ── COPY URL ── */
+function copyUrl() {
+  if (!streamUrl) return;
+  navigator.clipboard?.writeText(streamUrl).then(() => {
+    // Flash feedback on all copy buttons
+    document.querySelectorAll('[onclick="copyUrl()"]').forEach(btn => {
+      const orig = btn.textContent;
+      btn.textContent = '✓ Copied!';
+      setTimeout(() => btn.textContent = orig, 2000);
+    });
+  }).catch(() => {
+    // Fallback: select text
+    const ta = document.createElement('textarea');
+    ta.value = streamUrl;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+  });
+}
+
+/* ── DISCLAIMER ── */
+function dismissDisclaimer() {
+  disc.classList.add('hidden');
+  // Show compact URL bar instead
+  if (!errEl.style.display || errEl.style.display === 'none') {
+    urlbar.classList.add('show');
+  }
+}
+
+/* ── AUTO-HIDE TOPBAR ── */
 let hideTimer;
 function resetHide() {
   document.getElementById('topbar').classList.remove('hide');
+  urlbar.classList.remove('hide');
   clearTimeout(hideTimer);
   hideTimer = setTimeout(() => {
-    if (!video.paused) document.getElementById('topbar').classList.add('hide');
-  }, 3000);
+    if (!video.paused) {
+      document.getElementById('topbar').classList.add('hide');
+      urlbar.classList.add('hide');
+    }
+  }, 3500);
 }
 document.addEventListener('mousemove', resetHide);
-document.addEventListener('touchstart', resetHide);
+document.addEventListener('touchstart', resetHide, { passive: true });
 
-// Start
+/* ── START ── */
 if (streamUrl) {
   startStream(streamUrl);
 } else {
+  document.getElementById('loader-sub').textContent = 'No stream URL provided.';
   showError();
-  document.getElementById('error-msg').textContent = 'No stream URL provided.';
+  document.getElementById('error').querySelector('.err-msg').textContent = 'No stream URL was provided. Please go back and select a match.';
 }
 </script>
 </body>
