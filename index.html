@@ -793,7 +793,13 @@ function playStream(encoded, e) {
   const url = patchUrl(m.adfree_url || '');
   if (!url) { toast('❌ No stream URL available'); return; }
 
-  openStreamModal(m, url);
+  // Open player page on same domain — avoids blob origin issues
+  const params = new URLSearchParams({
+    url: url,
+    title: m.title || 'Live Stream',
+    live: m.live ? '1' : '0'
+  });
+  window.open('/player?' + params.toString(), '_blank', 'noopener');
 }
 
 function openStreamModal(m, url) {
@@ -806,32 +812,33 @@ function openStreamModal(m, url) {
   document.getElementById('sm-url').textContent = url;
   document.getElementById('sm-live').style.display = m.live ? 'flex' : 'none';
 
-  // Show modal fullscreen
+  // Show fullscreen modal
   const modal = document.getElementById('stream-modal');
   modal.style.display = 'flex';
   document.body.style.overflow = 'hidden';
 
-  // Reset states
+  // Reset
   document.getElementById('sm-loader').style.display = 'flex';
   document.getElementById('sm-err').style.display = 'none';
   const video = document.getElementById('sm-video');
-  video.style.display = 'block';
+  video.style.opacity = '0';
 
-  // Load stream with hls.js
+  // Load the stream
   loadHLSStream(video, url);
 }
 
 function loadHLSStream(video, url) {
-  // Destroy old instance if any
   if (window._hlsInst) { window._hlsInst.destroy(); window._hlsInst = null; }
   video.src = '';
 
-  const onReady = () => {
+  const showPlayer = () => {
     document.getElementById('sm-loader').style.display = 'none';
+    video.style.opacity = '1';
     video.play().catch(() => {});
   };
-  const onErr = () => {
+  const showErr = () => {
     document.getElementById('sm-loader').style.display = 'none';
+    video.style.opacity = '0';
     document.getElementById('sm-err').style.display = 'flex';
   };
 
@@ -839,22 +846,24 @@ function loadHLSStream(video, url) {
     const hls = new Hls({
       enableWorker: false,
       lowLatencyMode: true,
-      xhrSetup: function(xhr, u) {
-        xhr.setRequestHeader('Origin', 'https://fancode.com');
+      xhrSetup: (xhr, u) => {
+        try {
+          xhr.setRequestHeader('Origin', 'https://fancode.com');
+          xhr.setRequestHeader('Referer', 'https://fancode.com/');
+        } catch(e) {}
       }
     });
     window._hlsInst = hls;
     hls.loadSource(url);
     hls.attachMedia(video);
-    hls.on(Hls.Events.MANIFEST_PARSED, onReady);
-    hls.on(Hls.Events.ERROR, function(e, d) { if (d.fatal) onErr(); });
+    hls.on(Hls.Events.MANIFEST_PARSED, showPlayer);
+    hls.on(Hls.Events.ERROR, (e, d) => { if (d.fatal) showErr(); });
   } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-    // Safari / iOS native HLS
     video.src = url;
-    video.addEventListener('loadedmetadata', onReady, { once: true });
-    video.addEventListener('error', onErr, { once: true });
+    video.addEventListener('loadedmetadata', showPlayer, { once: true });
+    video.addEventListener('error', showErr, { once: true });
   } else {
-    onErr();
+    showErr();
   }
 }
 
@@ -862,24 +871,23 @@ function reloadStreamModal() {
   if (!currentStreamUrl) return;
   document.getElementById('sm-loader').style.display = 'flex';
   document.getElementById('sm-err').style.display = 'none';
-  const video = document.getElementById('sm-video');
-  loadHLSStream(video, currentStreamUrl);
-  toast('↻ Reloading stream…');
+  document.getElementById('sm-video').style.opacity = '0';
+  loadHLSStream(document.getElementById('sm-video'), currentStreamUrl);
+  toast('↻ Reloading…');
 }
 
 function closeStreamModal() {
   document.getElementById('stream-modal').style.display = 'none';
   document.body.style.overflow = '';
-  const video = document.getElementById('sm-video');
-  video.pause();
-  video.src = '';
+  const v = document.getElementById('sm-video');
+  v.pause(); v.src = '';
   if (window._hlsInst) { window._hlsInst.destroy(); window._hlsInst = null; }
 }
 
 function copyStreamUrl() {
   const url = currentStreamUrl || document.getElementById('sm-url').textContent;
   if (url && url !== '—') {
-    navigator.clipboard?.writeText(url).then(() => toast('✓ Stream URL copied!'));
+    navigator.clipboard?.writeText(url).then(() => toast('✓ URL copied!'));
   }
 }
 
